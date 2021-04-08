@@ -1,0 +1,13 @@
+{
+	"title": "Pregnancy During the Pandemic",
+	"description": "Sentence case dek goes down here. Modify these in data/meta.json.",
+	"site": "https://sabrinamochi.github.io",
+	"siteName": "Szu Yu's Portfolio",
+	"url": "https://pudding.cool/year/month/name/",
+	"author": {
+		"name": "Szu Yu Chen",
+		"url": "https://sabrinamochi.github.io",
+		"twitterHandle": "@dataviz_szuyu"
+	},
+	"lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis neque sit amet sollicitudin vehicula. Maecenas fringilla mi non lacus mattis elementum. Curabitur dignissim faucibus justo."
+}
