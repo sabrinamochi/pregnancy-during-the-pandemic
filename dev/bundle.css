@@ -159,7 +159,7 @@ td {
   line-height: 1.4;
 }
 .xx-large {
-  font-size: 32px;
+  font-size: 60px;
   line-height: 1.4;
 }
 .xxx-large {
@@ -217,6 +217,102 @@ td {
   max-width: 40rem;
   margin: 0 auto;
 }
+.aurora {
+  position: relative;
+  background-color: #000;
+}
+.aurora:before,
+.aurora:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border-radius: 100%;
+  opacity: 0.18;
+}
+.aurora:before {
+  -webkit-box-shadow: 0 0 35vmax 35vmax #f00;
+          box-shadow: 0 0 35vmax 35vmax #f00;
+  -webkit-animation: hue 5s 0s linear infinite, move1 10s 0s linear infinite;
+          animation: hue 5s 0s linear infinite, move1 10s 0s linear infinite;
+}
+.aurora:after {
+  -webkit-box-shadow: 0 0 35vmax 35vmax #0ff;
+          box-shadow: 0 0 35vmax 35vmax #0ff;
+  -webkit-animation: hue 10s 0s linear infinite, move2 20s 0s linear infinite;
+          animation: hue 10s 0s linear infinite, move2 20s 0s linear infinite;
+}
+@-webkit-keyframes hue {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+}
+@keyframes hue {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+}
+@-webkit-keyframes move1 {
+  0% {
+    left: 50vw;
+    top: 10vh;
+  }
+  50% {
+    left: 80vw;
+    top: 30vh;
+  }
+  100% {
+    left: 50vw;
+    top: 10vh;
+  }
+}
+@keyframes move1 {
+  0% {
+    left: 50vw;
+    top: 10vh;
+  }
+  50% {
+    left: 80vw;
+    top: 30vh;
+  }
+  100% {
+    left: 50vw;
+    top: 10vh;
+  }
+}
+@-webkit-keyframes move2 {
+  0% {
+    left: 20vw;
+  }
+  50% {
+    left: 60vw;
+  }
+  100% {
+    left: 20vw;
+  }
+}
+@keyframes move2 {
+  0% {
+    left: 20vw;
+  }
+  50% {
+    left: 60vw;
+  }
+  100% {
+    left: 20vw;
+  }
+}
 body {
   background-color: #fff;
   color: #282828;
@@ -239,7 +335,7 @@ body.modal-open {
   height: 100vh;
 }
 h1 {
-  font-size: 32px;
+  font-size: 60px;
   line-height: 1.4;
   margin-top: 1.5rem;
 }
@@ -730,26 +826,92 @@ header.is-sticky.is-dark .header__toggle svg {
 header.is-sticky.is-dark .header__toggle.is-visible span svg {
   stroke: #282828;
 }
+.opening {
+  background-color: #000;
+  position: relative;
+  color: #fff;
+}
+.opening__aurora {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+.opening__text {
+  text-align: center;
+  position: relative;
+  min-height: 50rem;
+}
+.opening__text p {
+  max-width: 40%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: x-large;
+  margin: 0 auto;
+  font-family: Georgia, Times, serif;
+}
+.opening__text p:first-of-type {
+  padding-top: 40vh;
+}
+.opening__text:last-of-type {
+  margin-bottom: 0;
+}
+.opening__img {
+  margin-bottom: 10rem;
+  z-index: 1000;
+  position: relative;
+}
+.opening__img img {
+  margin: 0 auto;
+  width: 70%;
+}
+.opening__quote {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: auto;
+}
+.opening__quote__container {
+  width: 40%;
+  margin: 5rem 0;
+}
+.opening__quote__container p,
+.opening__quote__container a {
+  font-family: Georgia, Times, serif;
+  margin: 0;
+  color: #fff;
+  line-height: 130%;
+}
+.opening__quote__container .quote {
+  border-bottom: none;
+  z-index: 1000;
+  font-size: 30px;
+}
+.opening__quote__container .name {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  margin-top: 0.2rem;
+}
 .intro {
   margin: 0 auto;
-  padding: 6rem 1rem 3rem 1rem;
 }
 .intro__hed {
-  max-width: 60rem;
-  margin: 0 auto;
+  max-width: 50rem;
+  margin: 5rem auto 0;
   text-align: center;
+  line-height: 110%;
   font-family: 'FT Grotzec Condensed Demibold';
 }
 .intro__dek {
   max-width: 40rem;
-  margin: 0 auto;
+  margin: 1em auto 0;
   margin-top: 1rem;
   text-align: center;
 }
 .intro__byline {
   max-width: 40rem;
   margin: 0 auto;
-  margin-top: 1rem;
+  margin-top: 2rem;
   text-align: center;
 }
 .intro__time {
