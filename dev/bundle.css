@@ -867,12 +867,11 @@ header.is-sticky.is-dark .header__toggle.is-visible span svg {
 }
 .opening__quote__container {
   width: 50%;
-  margin: 5rem 0;
+  margin: 6rem 0;
 }
 .opening__quote__container p,
 .opening__quote__container a {
   font-family: Georgia, Times, serif;
-  margin: 0;
   color: #fff;
   line-height: 130%;
 }
@@ -918,15 +917,125 @@ header.is-sticky.is-dark .header__toggle.is-visible span svg {
 }
 .main-column-width {
   width: 50%;
-  margin: 0 auto;
+  margin: 3em auto;
+}
+h2 {
+  font-family: 'FT Grotzec Condensed Demibold';
+  font-size: xx-large;
+}
+h5 {
+  line-height: 120%;
+  font-weight: 400;
 }
 .overview article,
 .murray article {
-  margin: 4em 0;
+  margin: 1.5em 0;
 }
 .overview__img,
 .murray__img {
   margin: 0 auto;
   width: 50%;
+}
+.hopecovid__bars__container {
+  margin: 2rem 0;
+}
+.hopecovid__bars__container p {
+  margin: 0;
+  font-size: small;
+  line-height: 130%;
+}
+.hopecovid__bars__container__bar {
+  position: relative;
+  height: 2rem;
+  background-color: #e6e6e6;
+  margin: 1.6rem 0 0.5rem;
+  width: 100%;
+  -webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+          box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+}
+.hopecovid__bars__container__bar p.reader {
+  position: absolute;
+  top: -60%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  left: 50%;
+}
+.hopecovid__bars__container__bar span {
+  overflow: hidden;
+}
+.hopecovid__bars__container__bar span.bar {
+  position: relative;
+  display: block;
+  height: 100%;
+  cursor: pointer;
+}
+.hopecovid__bars__container__bar span.tick {
+  top: 0;
+  left: 50%;
+  position: absolute;
+  background-color: #000;
+  width: 0.8%;
+  height: 120%;
+  opacity: 1;
+  -webkit-transform: translateY(-5%);
+      -ms-transform: translateY(-5%);
+          transform: translateY(-5%);
+  cursor: pointer;
+}
+.hopecovid .progess-animation-nervous {
+  -webkit-animation: progressNervous 1s ease-in-out;
+          animation: progressNervous 1s ease-in-out;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+.hopecovid .progess-animation-talk {
+  -webkit-animation: progressTalk 1s ease-in-out;
+          animation: progressTalk 1s ease-in-out;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+@-webkit-keyframes progressNervous {
+  0% {
+    width: 0;
+    background-color: #e8356d;
+  }
+  100% {
+    width: 50%;
+    background-color: #e8356d;
+  }
+}
+@keyframes progressNervous {
+  0% {
+    width: 0;
+    background-color: #e8356d;
+  }
+  100% {
+    width: 50%;
+    background-color: #e8356d;
+  }
+}
+@-webkit-keyframes progressTalk {
+  0% {
+    width: 0;
+    background-color: #e8356d;
+  }
+  100% {
+    width: 87%;
+    background-color: #e8356d;
+  }
+}
+@keyframes progressTalk {
+  0% {
+    width: 0;
+    background-color: #e8356d;
+  }
+  100% {
+    width: 87%;
+    background-color: #e8356d;
+  }
 }
 /*# sourceMappingURL=bundle.css.map */

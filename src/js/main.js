@@ -5,6 +5,7 @@ import linkFix from './utils/link-fix';
 import modalSetup from './utils/modal-a11y';
 import graphic from './graphic';
 import footer from './footer';
+import takeAGuessBar from './takeAGuessBar';
 
 const $body = d3.select('body');
 let previousWidth = 0;
@@ -42,6 +43,7 @@ function init() {
   graphic.init();
   // load footer stories
   footer.init();
+  takeAGuessBar.init();
 }
 
 init();

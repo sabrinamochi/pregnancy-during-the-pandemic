@@ -1,0 +1,25 @@
+<section class='hopecovid main-column-width'>
+    <h2>{{doc.hopecovid-title}}</h2>
+    <div class='hopecovid__bars'>
+        {{#each doc.bars}}
+        <div class='hopecovid__bars__container'>
+            <h5>{{title}}</h5>
+            <div class='hopecovid__bars__container__bar'>
+                <p class='reader'></p>
+                <span class='bar' id='{{idName}}'></span>
+                <span class='tick'></span>
+            </div>
+            <p class='answer' style='color: #E8356D'></p>
+        </div>
+        {{/each}}
+    </div>
+    <article>
+        {{#each doc.dr-jp}}
+            <div>
+                <p>
+                    {{value}}
+                </p>
+            </div>
+        {{/each}}
+    </article>
+</section>
