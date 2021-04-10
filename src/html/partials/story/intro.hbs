@@ -1,16 +1,17 @@
 <div class='opening'>
 	<div class='opening__aurora aurora'></div>
-	<div class='opening__text'>
-		<p>{{doc.intro-question1}}</p>
-	</div>
-	<div class='opening__text'>
-		<p>{{doc.intro-question2}}</p>
-	</div>
-	<div class='opening__img'>
-		<img src='assets/images/pregnant-belly.jpg'>
-	</div>
-	<div class='opening__quote'>
-		{{#each doc.intro-quotes}}
+	<section>
+		<div class='opening__text'>
+			<p>{{doc.first-opening-sentence}}</p>
+		</div>
+		<div class='opening__text'>
+			<p>{{doc.sec-opening-sentence}}</p>
+		</div>
+		<div class='opening__img'>
+			<img src='assets/images/pregnant-belly.jpg'>
+		</div>
+		<div class='opening__quote'>
+			{{#each doc.intro-quotes}}
 			<div class='opening__quote__container' id='{{order}}' style='transform: translateX({{left}})'>
 				<p>
 					<a href='https://www.google.com' target='_blank' class='quote'>
@@ -21,8 +22,9 @@
 					{{name}}
 				</p>
 			</div>
-		{{/each}}
-	</div>
+			{{/each}}
+		</div>
+	</section>
 </div>
 <div class='intro'>
 	<h1 class='intro__hed'>{{meta.title}}</h1>

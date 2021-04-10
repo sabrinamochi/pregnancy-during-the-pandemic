@@ -201,7 +201,7 @@ td {
   z-index: 1000;
 }
 .prose {
-  max-width: 40rem;
+  max-width: 50%;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -266,29 +266,23 @@ td {
 @-webkit-keyframes move1 {
   0% {
     left: 50vw;
-    top: 10vh;
   }
   50% {
     left: 80vw;
-    top: 30vh;
   }
   100% {
     left: 50vw;
-    top: 10vh;
   }
 }
 @keyframes move1 {
   0% {
     left: 50vw;
-    top: 10vh;
   }
   50% {
     left: 80vw;
-    top: 30vh;
   }
   100% {
     left: 50vw;
-    top: 10vh;
   }
 }
 @-webkit-keyframes move2 {
@@ -836,13 +830,17 @@ header.is-sticky.is-dark .header__toggle.is-visible span svg {
   position: sticky;
   top: 0;
 }
+.opening section {
+  width: 70%;
+  margin: 0 auto;
+}
 .opening__text {
   text-align: center;
   position: relative;
   min-height: 50rem;
 }
 .opening__text p {
-  max-width: 40%;
+  max-width: 60%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -857,13 +855,9 @@ header.is-sticky.is-dark .header__toggle.is-visible span svg {
   margin-bottom: 0;
 }
 .opening__img {
-  margin-bottom: 10rem;
+  margin-bottom: 3rem;
   z-index: 1000;
   position: relative;
-}
-.opening__img img {
-  margin: 0 auto;
-  width: 70%;
 }
 .opening__quote {
   height: -webkit-fit-content;
@@ -872,7 +866,7 @@ header.is-sticky.is-dark .header__toggle.is-visible span svg {
   overflow: auto;
 }
 .opening__quote__container {
-  width: 40%;
+  width: 50%;
   margin: 5rem 0;
 }
 .opening__quote__container p,
@@ -885,7 +879,7 @@ header.is-sticky.is-dark .header__toggle.is-visible span svg {
 .opening__quote__container .quote {
   border-bottom: none;
   z-index: 1000;
-  font-size: 30px;
+  font-size: 20px;
 }
 .opening__quote__container .name {
   font-family: Helvetica, Arial, sans-serif;
@@ -896,29 +890,43 @@ header.is-sticky.is-dark .header__toggle.is-visible span svg {
   margin: 0 auto;
 }
 .intro__hed {
-  max-width: 50rem;
+  width: 70%;
   margin: 5rem auto 0;
   text-align: center;
   line-height: 110%;
   font-family: 'FT Grotzec Condensed Demibold';
+  color: #000;
 }
 .intro__dek {
-  max-width: 40rem;
+  max-width: 50%;
   margin: 1em auto 0;
   margin-top: 1rem;
   text-align: center;
 }
 .intro__byline {
-  max-width: 40rem;
+  max-width: 50%;
   margin: 0 auto;
   margin-top: 2rem;
   text-align: center;
 }
 .intro__time {
   display: block;
-  max-width: 40rem;
+  max-width: 50%;
   margin: 0 auto;
   margin-top: 1rem;
   text-align: center;
+}
+.main-column-width {
+  width: 50%;
+  margin: 0 auto;
+}
+.overview article,
+.murray article {
+  margin: 4em 0;
+}
+.overview__img,
+.murray__img {
+  margin: 0 auto;
+  width: 50%;
 }
 /*# sourceMappingURL=bundle.css.map */

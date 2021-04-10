@@ -7,12 +7,15 @@
 		position sticky
 		top 0 
 		// height 100vh
+	section
+		width 70%
+		margin 0 auto
 	&__text
 		text-align center
 		position relative
 		min-height 50rem
 		p
-			max-width 40%
+			max-width 60%
 			height fit-content
 			font-size x-large
 			margin 0 auto
@@ -22,17 +25,14 @@
 	&__text:last-of-type
 		margin-bottom 0
 	&__img
-		img
-			margin 0 auto
-			width 70%
-		margin-bottom 10rem
+		margin-bottom 3rem
 		z-index 1000
 		position relative
 	&__quote
 		height fit-content
 		overflow auto
 		&__container
-			width 40%
+			width 50%
 			margin 5rem 0
 			p, a
 				font-family $serif
@@ -42,7 +42,7 @@
 			.quote
 				border-bottom none
 				z-index 1000
-				font-size 30px
+				font-size 20px
 			.name
 				font-family $sans
 				font-size 14px
@@ -61,11 +61,12 @@
 	// 	height 90vh
 
 	&__hed
-		max-width 50rem
+		width 70%
 		margin 5rem auto 0
 		text-align center
 		line-height 110%
 		font-family $ft-grotzec
+		color $black
 		
 	&__dek
 		max-width $column-width
