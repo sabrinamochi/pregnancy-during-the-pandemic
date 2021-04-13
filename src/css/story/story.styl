@@ -9,6 +9,7 @@ $pink = #E8356D
 h2
     font-family $ft-grotzec
     font-size xx-large
+    line-height 110%
 
 /* chart */
 h3
@@ -38,13 +39,16 @@ h5
     top 0
     left 0
     background-color $white
-    padding 1rem
+    padding 0.2rem
     opacity 0
+    border 3px solid $black
+    margin 0 auto
+    pointer-events none
 
-.mouse-over-line
-    stroke #5F5F5F
-    stroke-width 2
-    opacity 0
+// .mouse-over-line
+//     stroke #5F5F5F
+//     stroke-width 2
+//     opacity 0
 
 .mouse-over-circle
     stroke #5F5F5F
@@ -130,13 +134,40 @@ h5
         
 
 #reddit
+    margin-bottom 5em
+    h2
+        margin 0 auto 1rem
+        width $column-width
     .reddit__container
-        position relative
-    .scroll__graphic
-        height 50vh
-    .tooltip
-        border 3px solid $black
+        width 80%
         margin 0 auto
+        position relative
+        display flex
+        justify-content center
+        @media phone
+                display block
+    .scroll__graphic
+        height 60vh
+        position sticky
+        position -webkit-sticky
+        top 10rem
+        align-self start
+        width 55%
+        @media phone
+            top 12rem
+    .scroll__text
+        position relative
+        max-width 35%
+    .step 
+        height 100vh
+        p
+            background-color rgba(255,255,255,1)    
+            padding 1rem 
+            // box-shadow 2px 2px 3px rgba(0,0,0,0.5)
+            border 3px solid $black
+    .step:first-of-type
+        margin-top 10rem
+    .tooltip
         h4 
                 text-align center
         .text
@@ -157,20 +188,21 @@ h5
                 padding 0.5rem 0
                 width 15rem
                 margin 0 auto
+                display grid
                 .bar-group
                     display flex
-                    justify-content center
                     align-items center
                     justify-content space-between
                     div
                         font-size 12px
-                        width 40%
+                        width 50%
                         .bar
                             height 0.5rem
                             background-color $black
                             display inline-block
                     div:first-of-type
                         margin-right 1rem
-                        width 60%
+                        width 40%
+                        text-align right
                     
 

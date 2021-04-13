@@ -127,12 +127,12 @@ function drawChart() {
     const mouseG = $gVis.append('g')
         .attr('class', 'mouse-over-effects')
 
-    const mouseLine = mouseG.append('line') //the vertical line
-        .attr('class', 'mouse-over-line')
-        .attr('x0', 0)
-        .attr('x1', 0)
-        .attr('y0', yScale.range()[1])
-        .attr('y1', yScale.range()[0])
+    // const mouseLine = mouseG.append('line') //the vertical line
+    //     .attr('class', 'mouse-over-line')
+    //     .attr('x0', 0)
+    //     .attr('x1', 0)
+    //     .attr('y0', yScale.range()[1])
+    //     .attr('y1', yScale.range()[0])
 
     const mouseCircle = mouseG.append('circle')
         .attr('class', 'mouse-over-circle')
@@ -156,14 +156,22 @@ function drawChart() {
                 selectedData = dataset[i],
                 x = xScale(selectedData.date),
                 y = yScale(selectedData[selValueCol]);
-            mouseLine
-                .attr('transform', `translate(${x}, 0)`);
+            // mouseLine
+            //     .attr('transform', `translate(${x}, 0)`);
             mouseCircle
                 .attr('cx', x)
                 .attr('cy', y)
+            
+            const tipW = $tip.node().getBoundingClientRect().width
 
             $tip
-                .style('left', `${x + tipXOffset}px`)
+                .style('left', ()=>{
+                    if ((boundedWidth - x) < 50){
+                        return `${x - tipXOffset / 2 - tipW }px`
+                    } else{
+                        return `${x + tipXOffset}px`
+                    }
+                })
                 .style('top', `${y}px`)
             $tip.select('.date')
                 .html(formatTime(selectedData.date))
@@ -208,21 +216,21 @@ function drawChart() {
 
         })
         .on('mouseover', function () {
-            mouseLine
-                .style('opacity', 1)
+            // mouseLine
+            //     .style('opacity', 1)
             mouseCircle
                 .style('opacity', 1)
             $tip
                 .style('opacity', 1)
         })
-    // .on('mouseout', function () {
-    //     mouseLine
-    //         .style('opacity', 0)
-    //     mouseCircle
-    //         .style('opacity', 0)
-    //     $tip
-    //         .style('opacity', 0)
-    // })
+    .on('mouseout', function () {
+        // mouseLine
+        //     .style('opacity', 0)
+        mouseCircle
+            .style('opacity', 0)
+        $tip
+            .style('opacity', 0)
+    })
 
 }
 
@@ -230,7 +238,7 @@ function updateDimensions() {
     h = window.innerHeight;
     w = window.innerWidth;
     isMobile = w <= 600 ? true : false;
-    height = isMobile ? Math.floor(h * 0.6) : Math.floor(h * 0.7);
+    height = $graphic.node().offsetHeight;
     width = $graphic.node().offsetWidth;
     boundedWidth = width - MARGIN.left - MARGIN.right
     boundedHeight = height - MARGIN.top - MARGIN.bottom
