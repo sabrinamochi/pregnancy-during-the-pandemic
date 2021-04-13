@@ -1,6 +1,21 @@
-<section class='less-baby main-column-width'>
+<section class='main-column-width' id='less-baby'>
     <article>
         {{#each doc.less-baby}}
+            <div>
+                <p>
+                    {{value}}
+                </p>
+            </div>
+        {{/each}}
+    </article>
+    <div class='birth-rates-chart'>
+        <h3>Birth Counts</h3>
+        <svg>
+            <g class='vis'></g>
+        </svg>
+    </div>
+    <article>
+        {{#each doc.molly}}
             <div>
                 <p>
                     {{value}}

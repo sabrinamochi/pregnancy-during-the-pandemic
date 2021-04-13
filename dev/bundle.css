@@ -1182,4 +1182,22 @@ h5 {
   width: 40%;
   text-align: right;
 }
+#less-baby .birth-rates-chart {
+  height: 60vh;
+}
+#less-baby .birth-rates-chart .y-axis .tick text {
+  text-anchor: initial;
+  font-size: 10px;
+  -webkit-transform: translateY(-10px);
+      -ms-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+#less-baby .birth-rates-chart .label {
+  font-size: 14px;
+  -webkit-transform: translate(-15px, -20px);
+      -ms-transform: translate(-15px, -20px);
+          transform: translate(-15px, -20px);
+  fill: #e8356d;
+  font-weight: bold;
+}
 /*# sourceMappingURL=bundle.css.map */
