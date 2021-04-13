@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang='en' data-version='1618032103923'>
+<html lang='en' data-version='1618288646134'>
 
 <head>
 
@@ -39,7 +39,7 @@
 	
 		@font-face {
 			font-family: 'FT Grotzec Condensed Demibold';
-			src: url('assets/fonts/FTGrotzecCondensedDemibold/GrotzecCond-Demibold3.woff2') format('woff2')
+			src: url('https://sabrinamochi.github.io/pregnancy-during-the-pandemic/assets/fonts/FTGrotzecCondensedDemibold/GrotzecCond-Demibold3.woff2') format('woff2')
 		}
 	
 		/* 
@@ -50,7 +50,7 @@
 	
 		@font-face {
 			font-family: 'FT Grotzec Condensed Demibold Italic';
-			src: url('assets/fonts/FTGrotzecCondensedDemibold/GrotzecCond-DemiboldItalic.woff2') format('woff2')
+			src: url('https://sabrinamochi.github.io/pregnancy-during-the-pandemic/assets/fonts/FTGrotzecCondensedDemibold/GrotzecCond-DemiboldItalic.woff2') format('woff2')
 		}
 	
 		/* 
@@ -61,7 +61,7 @@
 	
 		@font-face {
 			font-family: 'Le Jeune Poster Regular';
-			src: url('assets/fonts/lejeune_poster/LeJeunePoster-Regular.otf') format('otf')
+			src: url('https://sabrinamochi.github.io/pregnancy-during-the-pandemic/assets/fonts/lejeune_poster/LeJeunePoster-Regular.otf') format('otf')
 		}
 	
 		/* 
@@ -72,7 +72,7 @@
 	
 		@font-face {
 			font-family: 'Le Jeune Poster Regular Italic';
-			src: url('assets/fonts/lejeune_poster/LeJeunePoster-RegularItalic.otf') format('otf')
+			src: url('https://sabrinamochi.github.io/pregnancy-during-the-pandemic/assets/fonts/lejeune_poster/LeJeunePoster-RegularItalic.otf') format('otf')
 		}
 	
 	</style>
@@ -254,6 +254,42 @@
 		            </div>
 		    </article>
 		</section>
+		<section class='main-column-width' id='reddit'>
+		    <div class='reddit__container'>
+		        <div class='scroll__graphic'>
+		            <h3>Sentiment of r/Pregnant Posts</h3>
+		            <svg>
+		                <g class='vis'>
+		                    <g id='sentiment'></g>
+		                    <g id='number'></g>
+		                </g>
+		                <g class='axis x-axis'></g>
+		                <g class='axis y-axis'></g>
+		            </svg>
+		        </div>
+		        <div class='tooltip'>
+		            <div class='text'>
+		                <h4 class='date'></h4>
+		                <div class='text-container'>
+		                    <div>
+		                        <p id='avg-sentiment'></p>
+		                        <p>Average Sentiment</p>
+		                    </div>
+		                    <div>
+		                        <p id='num-of-posts'></p>
+		                        <p>Number of Posts</p>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class='chart'>
+		                <h4>Top Words</h4>
+		                <div class='bars'></div>
+		            </div>
+		        </div>
+		        <div class='scroll__text'>
+		        </div>
+		    </div>
+		</section>
 	</main>
 
 	<footer class='footer'>
@@ -262,7 +298,7 @@
 
 
 	<script src='assets/scripts/d3.v6.0.0.min.js'></script>
-	<script src='bundle.js?version=1618032103923' async></script>
+	<script src='bundle.js?version=1618288646134' async></script>
 </body>
 
 </html>

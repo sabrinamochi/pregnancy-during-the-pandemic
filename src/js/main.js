@@ -6,6 +6,7 @@ import modalSetup from './utils/modal-a11y';
 import graphic from './graphic';
 import footer from './footer';
 import takeAGuessBar from './takeAGuessBar';
+import redditChart from './redditChart';
 
 const $body = d3.select('body');
 let previousWidth = 0;
@@ -17,6 +18,7 @@ function resize() {
   if (previousWidth !== width) {
     previousWidth = width;
     graphic.resize();
+    redditChart.resize();
   }
 }
 
@@ -44,6 +46,7 @@ function init() {
   // load footer stories
   footer.init();
   takeAGuessBar.init();
+  redditChart.init();
 }
 
 init();

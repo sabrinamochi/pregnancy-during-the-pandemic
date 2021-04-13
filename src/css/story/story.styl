@@ -6,15 +6,53 @@ $pink = #E8356D
     width $column-width
     margin 3em auto
 
-/* chart title */
 h2
     font-family $ft-grotzec
     font-size xx-large
 
+/* chart */
+h3
+    font-family $ft-grotzec
 h5 
     line-height 120%
     font-weight 400
     // font-style italic
+
+.axis path, .axis line
+    stroke #5F5F5F
+.axis text 
+    fill #5F5F5F
+
+.y-axis
+    .domain
+            stroke none
+    line
+        stroke-width 2
+    .tick
+        text 
+            text-anchor middle
+            font-size 12px
+
+.tooltip
+    position absolute
+    top 0
+    left 0
+    background-color $white
+    padding 1rem
+    opacity 0
+
+.mouse-over-line
+    stroke #5F5F5F
+    stroke-width 2
+    opacity 0
+
+.mouse-over-circle
+    stroke #5F5F5F
+    stroke-width 2
+    fill none
+    opacity 0
+
+/* */
 
 .overview, .murray
     article 
@@ -22,6 +60,7 @@ h5
     &__img
         margin 0 auto
         width $column-width
+
 
 .hopecovid
     &__bars
@@ -89,4 +128,49 @@ h5
             width 87%
             background-color $pink
         
-    
+
+#reddit
+    .reddit__container
+        position relative
+    .scroll__graphic
+        height 50vh
+    .tooltip
+        border 3px solid $black
+        margin 0 auto
+        h4 
+                text-align center
+        .text
+            .text-container
+                display flex
+                justify-content center
+                div
+                    width 30%
+                    p
+                        margin 0
+                        font-size 14px
+                        line-height 110%
+                        text-align center
+                div:first-of-type
+                    margin-right 3rem
+        .chart
+            .bars
+                padding 0.5rem 0
+                width 15rem
+                margin 0 auto
+                .bar-group
+                    display flex
+                    justify-content center
+                    align-items center
+                    justify-content space-between
+                    div
+                        font-size 12px
+                        width 40%
+                        .bar
+                            height 0.5rem
+                            background-color $black
+                            display inline-block
+                    div:first-of-type
+                        margin-right 1rem
+                        width 60%
+                    
+
