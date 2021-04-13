@@ -222,6 +222,7 @@ function drawChart() {
                 .style('opacity', 1)
             $tip
                 .style('opacity', 1)
+                .style('visibility', 'visible')
         })
     .on('mouseout', function () {
         // mouseLine
@@ -230,6 +231,7 @@ function drawChart() {
             .style('opacity', 0)
         $tip
             .style('opacity', 0)
+            .style('visibility', 'hidden')
     })
 
 }

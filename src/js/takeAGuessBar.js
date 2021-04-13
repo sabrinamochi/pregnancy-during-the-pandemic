@@ -20,7 +20,7 @@ function init() {
                     clickedValue = clickedValue + '%'
                 }
 
-                $readerText.innerHTML = clickedValue + " of the days";
+                $readerText.innerHTML = i == 0 ? clickedValue + " of the days" : clickedValue;
                 $readerText.style.left = clickedValue;
                 $bar.querySelector('span.tick').style.left = clickedValue;
                 $bar.querySelector('span.tick').style.opacity = 1;
@@ -49,14 +49,16 @@ function init() {
                 answerText = `According to HOPE COVID-19 study, 
                 most of its pregnant participants were bothered
                 by nervousness and anxiety for ${barValue}% or more of the days.`
+                $readerText.innerHTML = `Your answer: ${clickedValue} of the days`
             } else {
                 barValue = 87;
                 barClass = 'progess-animation-talk';
                 answerText = `According to HOPE COVID-19 study,
                 ${barValue}% of the pregnant participants often 
                 meet or talk with family or friends`
+                $readerText.innerHTML = `Your answer: ${clickedValue}`
             }
-            $readerText.innerHTML = `Your answer: ${clickedValue} of the days`
+            
             $answerText.innerHTML = answerText;
 
             $readerText.style.left = clickedValue;
