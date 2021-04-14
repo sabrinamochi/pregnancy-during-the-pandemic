@@ -430,6 +430,11 @@ sub {
 footer img {
   margin: 0 auto;
 }
+@media (max-width: 767px) {
+  footer img {
+    width: 100% !important;
+  }
+}
 header {
   z-index: 1000;
   position: absolute;
@@ -747,6 +752,11 @@ header.is-sticky.is-dark .header__toggle.is-visible span svg {
   width: 50%;
   margin: 3em auto;
 }
+@media (max-width: 767px) {
+  .main-column-width {
+    width: 80%;
+  }
+}
 h2 {
   font-family: 'FT Grotzec Condensed Demibold';
   font-size: xx-large;
@@ -909,7 +919,7 @@ article {
 }
 #reddit h2 {
   margin: 0 auto 1rem;
-  width: 50%;
+  width: 80%;
 }
 #reddit .reddit__container {
   width: 80%;
@@ -922,28 +932,40 @@ article {
       -ms-flex-pack: center;
           justify-content: center;
 }
-@media phone {
+@media (max-width: 767px) {
   #reddit .reddit__container {
-    display: block;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
   }
 }
 #reddit .scroll__graphic {
-  height: 60vh;
+  overflow: scroll;
+  height: 65vh;
   position: sticky;
   position: -webkit-sticky;
   top: 10rem;
   -ms-flex-item-align: start;
       align-self: start;
-  width: 55%;
+  width: 60%;
 }
-@media phone {
+@media (max-width: 767px) {
   #reddit .scroll__graphic {
-    top: 12rem;
+    top: 5rem;
+    width: 98%;
   }
 }
 #reddit .scroll__text {
   position: relative;
-  max-width: 35%;
+  margin: auto;
+  max-width: 30%;
+  z-index: 1000;
+}
+@media (max-width: 767px) {
+  #reddit .scroll__text {
+    max-width: 80%;
+  }
 }
 #reddit .step {
   height: 100vh;
@@ -1012,6 +1034,13 @@ article {
 }
 #less-baby .birth-rates-chart {
   height: 60vh;
+  width: 100%;
+  margin: auto;
+}
+@media (max-width: 767px) {
+  #less-baby .birth-rates-chart {
+    height: 50vh;
+  }
 }
 #less-baby .birth-rates-chart .y-axis .tick text {
   text-anchor: initial;
@@ -1020,6 +1049,11 @@ article {
       -ms-transform: translateY(-10px);
           transform: translateY(-10px);
 }
+@media (max-width: 767px) {
+  #less-baby .birth-rates-chart .y-axis .tick text {
+    font-size: 8px;
+  }
+}
 #less-baby .birth-rates-chart .label {
   font-size: 14px;
   -webkit-transform: translate(-15px, -20px);
@@ -1027,5 +1061,166 @@ article {
           transform: translate(-15px, -20px);
   fill: #e8356d;
   font-weight: bold;
+}
+@media (max-width: 767px) {
+  #less-baby .birth-rates-chart .label {
+    font-size: 10px;
+    font-weight: regular;
+  }
+}
+#more-stories audio {
+  margin: 2rem 0;
+  width: 95%;
+}
+#more-stories .title__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media (max-width: 767px) {
+  #more-stories .title__buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+#more-stories .title__buttons h2 {
+  margin-top: 0;
+}
+#more-stories .story__container {
+  display: none;
+}
+#more-stories .story__container.active {
+  display: block;
+}
+@media (max-width: 767px) {
+  #more-stories .story__container h3 {
+    margin-top: 0;
+  }
+}
+#more-stories .story__container__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+@media (max-width: 767px) {
+  #more-stories .story__container__content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+#more-stories .story__container__content__text__holder {
+  width: 40%;
+}
+@media (max-width: 767px) {
+  #more-stories .story__container__content__text__holder {
+    width: 95%;
+  }
+}
+#more-stories .story__container__content__text__holder p {
+  margin: 0;
+}
+#more-stories .story__container__content__image__holder {
+  width: 50%;
+}
+@media (max-width: 767px) {
+  #more-stories .story__container__content__image__holder {
+    width: 95%;
+  }
+}
+@media (max-width: 767px) {
+  #more-stories .story__container#quintett .story__container__content,
+  #more-stories .story__container#olive .story__container__content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+#more-stories .button__container {
+  position: relative;
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.5rem 0 0.25rem 0;
+  width: 20%;
+}
+@media (max-width: 767px) {
+  #more-stories .button__container {
+    width: 80%;
+  }
+}
+#more-stories .button__container .button__previous {
+  border: 1px solid #000;
+}
+#more-stories .button__container .button__next {
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+#more-stories .button__container button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  font-size: 2rem;
+  color: #000;
+  height: 30px;
+  background: #fff;
+}
+#more-stories .button__container button .icon {
+  position: relative;
+  margin: auto;
+  width: 20px;
+  height: 0.8px;
+  background: #000;
+}
+#more-stories .button__container button .arrow-left::before {
+  content: '';
+  position: absolute;
+  left: 0.8px;
+  top: -4px;
+  width: 9px;
+  height: 9px;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  -webkit-transform: rotate(-135deg);
+      -ms-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+}
+#more-stories .button__container button .arrow-right::before {
+  content: '';
+  position: absolute;
+  right: 0.8px;
+  top: -4px;
+  width: 9px;
+  height: 9px;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 /*# sourceMappingURL=bundle.css.map */

@@ -8,6 +8,7 @@ import footer from './footer';
 import takeAGuessBar from './takeAGuessBar';
 import redditChart from './redditChart';
 import birthRate from './birthRate';
+import moreStory from './moreStory';
 
 const $body = d3.select('body');
 let previousWidth = 0;
@@ -50,6 +51,7 @@ function init() {
   takeAGuessBar.init();
   redditChart.init();
   birthRate.init();
+  moreStory.init();
 }
 
 init();

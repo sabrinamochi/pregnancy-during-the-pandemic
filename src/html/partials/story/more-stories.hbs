@@ -1,0 +1,77 @@
+<section id='more-stories' class='main-column-width'>
+    <div class='title__buttons'>
+        <h2>More Stories</h2>
+        <div class='button__container'>
+            <button class='button__previous'>
+                <span class="icon arrow-left" aria-hidden="true"></span>
+            </button>
+            <button class='button__next'>
+                <span class="icon arrow-right" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+    <div class='story__container' id='quintett'>
+        <h3 class='story__container__title'>Quintett Bowers</h3>
+        <div class='story__container__content'>
+            <div class='story__container__content__text__holder'>
+                <p>{{doc.more-stories-quintett}}</p>
+                <audio controls>
+                    <source src="./assets/audios/quintett-racism.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <figure class='story__container__content__image__holder'>
+                <img src='./assets/images/quintett.jpg'>
+            </figure>
+        </div>
+    </div>
+    <div class='story__container' id='molly'>
+        <h3 class='story__container__title'>Molly</h3>
+        <div class='story__container__content'>
+            {{#each doc.more-stories-molly}}
+            <div class='story__container__content__text__holder'>
+                <p>{{value}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class='story__container' id='olive'>
+        <h3 class='story__container__title'>Olive Deavers</h3>
+        <div class='story__container__content'>
+            <div class='story__container__content__text__holder'>
+                <p>{{doc.more-stories-olive}}</p>
+                <audio controls>
+                    <source src="./assets/audios/olive-heartbeat-final.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <figure class='story__container__content__image__holder'>
+                <img src='./assets/images/olive-husband-look-each-other.jpg'>
+            </figure>
+        </div>
+    </div>
+    <div class='story__container' id='juliet'>
+        <h3 class='story__container__title'>Juliet Murray</h3>
+        <div class='story__container__content'>
+            <div class='story__container__content'>
+                {{#each doc.more-stories-juliet}}
+                <div class='story__container__content__text__holder'>
+                    <p>{{value}}</p>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class='story__container' id='jordan'>
+        <h3 class='story__container__title'>Jordan Capek</h3>
+        <div class='story__container__content'>
+            <div class='story__container__content__text__holder'>
+                {{#each doc.more-stories-jordan}}
+                <p>{{value}}</p>
+                {{/each}}
+             </div>
+        <figure class='story__container__content__image__holder'>
+            <img src='./assets/images/jordan.jpg'>
+        </figure>
+    </div>
+</section>

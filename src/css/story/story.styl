@@ -2,8 +2,14 @@
 
 $pink = #E8356D
 
+/* Device media queries */
+tablet = "(min-width: 768px) and (max-width: 979px)"
+phone = "(max-width: 767px)"
+
 .main-column-width 
     width $column-width
+    @media phone 
+        width $phone-column-width
     margin 3em auto
 
 h2
@@ -139,7 +145,7 @@ article
     margin-bottom 5em
     h2
         margin 0 auto 1rem
-        width $column-width
+        width $phone-column-width
     .reddit__container
         width 80%
         margin 0 auto
@@ -147,19 +153,25 @@ article
         display flex
         justify-content center
         @media phone
-                display block
+                flex-direction column-reverse
     .scroll__graphic
-        height 60vh
+        overflow scroll
+        height 65vh
         position sticky
         position -webkit-sticky
         top 10rem
         align-self start
-        width 55%
+        width 60%
         @media phone
-            top 12rem
+            top 5rem
+            width 98%
     .scroll__text
         position relative
-        max-width 35%
+        margin auto
+        max-width 30%
+        z-index 1000
+        @media phone
+            max-width 80%
     .step 
         height 100vh
         p
@@ -211,13 +223,117 @@ article
 #less-baby
     .birth-rates-chart
         height 60vh
+        width 100%
+        margin auto
+        @media phone 
+            height 50vh
         .y-axis .tick text 
             text-anchor initial
             font-size 10px
             transform translateY(-10px)
+            @media phone 
+                font-size 8px
         .label
             font-size 14px
             transform translate(-15px, -20px)
             fill $pink
             font-weight bold
+            @media phone 
+                font-size 10px
+                font-weight regular
 
+#more-stories
+    audio 
+        margin 2rem 0
+        width 95%
+    .title__buttons
+        display flex
+        justify-content space-between
+        align-items center
+        @media phone
+                flex-direction column
+                align-items flex-start
+        h2 
+            margin-top 0
+    .story__container
+        display none
+        &.active
+            display block
+        h3
+            @media phone
+                margin-top 0
+        &__content
+            display flex
+            justify-content space-between
+            @media phone
+                flex-direction column
+            &__text__holder
+                width 40%
+                @media phone
+                    width 95%
+                p 
+                    margin 0
+                
+            &__image__holder
+                width 50%
+                @media phone
+                    width 95%
+        &#quintett, &#olive
+            .story__container__content
+                @media phone
+                    flex-direction column-reverse
+    
+    .button__container
+        position relative
+        z-index 100
+        display flex
+        // justify-content flex-end
+        padding 0.5rem 0 0.25rem 0
+        width 20%
+        @media phone
+            width 80%
+        .button__previous
+            border 1px solid $black
+        .button__next
+            border-top 1px solid $black
+            border-right 1px solid $black
+            border-bottom 1px solid $black
+        button 
+            display flex
+            align-content center
+            justify-content center
+            flex-basis 50%
+            font-size 2rem
+            color $black
+            height 30px
+            // flex-basis 10%
+            background $white
+            .icon
+                position relative
+                margin auto
+                width 20px
+                height 0.8px
+                background $black
+            .arrow-left
+                &::before 
+                    content ''
+                    position absolute
+                    left 0.8px
+                    top -4px
+                    width 9px
+                    height 9px
+                    border-top 1px solid $black
+                    border-right 1px solid $black
+                    transform rotate(-135deg)
+            .arrow-right
+                &::before 
+                    content ''
+                    position absolute
+                    right 0.8px
+                    top -4px
+                    width 9px
+                    height 9px
+                    border-top 1px solid $black
+                    border-right 1px solid $black
+                    transform rotate(45deg)
+      

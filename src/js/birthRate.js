@@ -81,9 +81,9 @@ function drawChart() {
         .attr('transform', (d, i) => {
             const yPosition = i <= 2 ? 0 : 1;
             if (i <= 2) {
-                return `translate(${i*boundedWidth/3}, ${yPosition*boundedHeight/2})`
+                return `translate(${i*boundedWidth/3 + i*10}, ${yPosition*boundedHeight/2})`
             } else {
-                return `translate(${(i-3)*boundedWidth/3}, ${yPosition*boundedHeight/2})`
+                return `translate(${(i-3)*boundedWidth/3 + (i-3)*10}, ${yPosition*boundedHeight/2 + 10})`
             }
 
         })
@@ -255,8 +255,8 @@ function updateDimensions() {
     $svg.attr('width', width)
         .attr('height', height)
     $gVis.attr('transform', `translate(${MARGIN.left}, ${MARGIN.top})`)
-    lineChartWidth = boundedWidth / 3 - 30;
-    lineChartHeight = boundedHeight / 2 - 100;
+    lineChartWidth = isMobile ? boundedWidth / 3 - 10 : boundedWidth / 3 - 30;
+    lineChartHeight = isMobile ? boundedHeight / 2 - 10 : boundedHeight / 2 - 50;
     xScale
         .range([0, lineChartWidth])
     yScale
