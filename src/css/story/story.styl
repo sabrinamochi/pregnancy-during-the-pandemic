@@ -16,6 +16,8 @@ h2
     font-family $ft-grotzec
     font-size xx-large
     line-height 110%
+    @media phone 
+        font-size x-large
 
 /* chart */
 h3
@@ -72,6 +74,8 @@ article
     &__img
         margin 0 auto
         width $column-width
+        @media phone
+            width $phone-column-width
 
 
 .hopecovid
@@ -145,7 +149,9 @@ article
     margin-bottom 5em
     h2
         margin 0 auto 1rem
-        width $phone-column-width
+        width $column-width
+        @media phone
+            width $phone-column-width
     .reddit__container
         width 80%
         margin 0 auto
@@ -155,7 +161,7 @@ article
         @media phone
                 flex-direction column-reverse
     .scroll__graphic
-        overflow scroll
+        // overflow hidden
         height 65vh
         position sticky
         position -webkit-sticky
@@ -185,6 +191,8 @@ article
         h4 
                 text-align center
         .text
+            h4
+                font-size 14px
             .text-container
                 display flex
                 justify-content center
@@ -192,15 +200,19 @@ article
                     width 30%
                     p
                         margin 0
-                        font-size 14px
+                        font-size 12px
                         line-height 110%
                         text-align center
                 div:first-of-type
                     margin-right 3rem
         .chart
+            h4
+                font-size 14px
             .bars
                 padding 0.5rem 0
-                width 15rem
+                width 12rem
+                @media phone
+                    width 8rem
                 margin 0 auto
                 display grid
                 .bar-group
@@ -208,7 +220,7 @@ article
                     align-items center
                     justify-content space-between
                     div
-                        font-size 12px
+                        font-size 10px
                         width 50%
                         .bar
                             height 0.5rem
@@ -218,6 +230,10 @@ article
                         margin-right 1rem
                         width 40%
                         text-align right
+                        @media phone
+                            margin-right 0
+                            width 100%
+                            text-align left
                     
 
 #less-baby
@@ -341,7 +357,7 @@ article
                 width 50%
                 @media phone
                     width 95%
-        &#quintett, &#olive
+        &#quintett, &#olive, &#jordan
             .story__container__content
                 @media phone
                     flex-direction column-reverse

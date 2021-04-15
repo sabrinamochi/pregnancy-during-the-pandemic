@@ -1,3 +1,8 @@
+
+/* Device media queries */
+tablet = "(min-width: 768px) and (max-width: 979px)"
+phone = "(max-width: 767px)"
+
 .opening
 	background-color $black
 	// z-index -10
@@ -67,6 +72,9 @@
 		line-height 110%
 		font-family $ft-grotzec
 		color $black
+		@media phone
+			width $phone-column-width
+			font-size 40px
 		
 	&__dek
 		max-width $column-width

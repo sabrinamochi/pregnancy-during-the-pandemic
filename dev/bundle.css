@@ -737,6 +737,12 @@ header.is-sticky.is-dark .header__toggle.is-visible span svg {
   font-family: 'FT Grotzec Condensed Demibold';
   color: #000;
 }
+@media (max-width: 767px) {
+  .intro__hed {
+    width: 80%;
+    font-size: 40px;
+  }
+}
 .intro__dek {
   max-width: 50%;
   margin: 1em auto 0;
@@ -769,6 +775,11 @@ h2 {
   font-family: 'FT Grotzec Condensed Demibold';
   font-size: xx-large;
   line-height: 110%;
+}
+@media (max-width: 767px) {
+  h2 {
+    font-size: x-large;
+  }
 }
 h3 {
   font-family: 'FT Grotzec Condensed Demibold';
@@ -819,6 +830,12 @@ article {
 .murray__img {
   margin: 0 auto;
   width: 50%;
+}
+@media (max-width: 767px) {
+  .overview__img,
+  .murray__img {
+    width: 80%;
+  }
 }
 .hopecovid__bars__container {
   margin: 2rem 0;
@@ -927,7 +944,12 @@ article {
 }
 #reddit h2 {
   margin: 0 auto 1rem;
-  width: 80%;
+  width: 50%;
+}
+@media (max-width: 767px) {
+  #reddit h2 {
+    width: 80%;
+  }
 }
 #reddit .reddit__container {
   width: 80%;
@@ -949,7 +971,6 @@ article {
   }
 }
 #reddit .scroll__graphic {
-  overflow: scroll;
   height: 65vh;
   position: sticky;
   position: -webkit-sticky;
@@ -989,6 +1010,9 @@ article {
 #reddit .tooltip h4 {
   text-align: center;
 }
+#reddit .tooltip .text h4 {
+  font-size: 14px;
+}
 #reddit .tooltip .text .text-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1002,18 +1026,26 @@ article {
 }
 #reddit .tooltip .text .text-container div p {
   margin: 0;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 110%;
   text-align: center;
 }
 #reddit .tooltip .text .text-container div:first-of-type {
   margin-right: 3rem;
 }
+#reddit .tooltip .chart h4 {
+  font-size: 14px;
+}
 #reddit .tooltip .chart .bars {
   padding: 0.5rem 0;
-  width: 15rem;
+  width: 12rem;
   margin: 0 auto;
   display: grid;
+}
+@media (max-width: 767px) {
+  #reddit .tooltip .chart .bars {
+    width: 8rem;
+  }
 }
 #reddit .tooltip .chart .bars .bar-group {
   display: -webkit-box;
@@ -1027,7 +1059,7 @@ article {
           justify-content: space-between;
 }
 #reddit .tooltip .chart .bars .bar-group div {
-  font-size: 12px;
+  font-size: 10px;
   width: 50%;
 }
 #reddit .tooltip .chart .bars .bar-group div .bar {
@@ -1039,6 +1071,13 @@ article {
   margin-right: 1rem;
   width: 40%;
   text-align: right;
+}
+@media (max-width: 767px) {
+  #reddit .tooltip .chart .bars .bar-group div:first-of-type {
+    margin-right: 0;
+    width: 100%;
+    text-align: left;
+  }
 }
 #less-baby .birth-rates-chart {
   height: 60vh;
@@ -1222,7 +1261,8 @@ article {
 }
 @media (max-width: 767px) {
   #more-stories .story__container#quintett .story__container__content,
-  #more-stories .story__container#olive .story__container__content {
+  #more-stories .story__container#olive .story__container__content,
+  #more-stories .story__container#jordan .story__container__content {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
