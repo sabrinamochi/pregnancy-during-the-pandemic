@@ -447,6 +447,10 @@ header {
   width: 100%;
   background-color: #fff;
 }
+header #menuToggle {
+  left: 0;
+  margin-left: 20px;
+}
 header a.logo {
   display: block;
   border: none;
