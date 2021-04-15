@@ -39,7 +39,7 @@ function drawChart() {
     $gVis.selectAll('.line-group').remove()
 
     xScale
-        .domain(d3.extent(dataset, d => d.date))
+        .domain([new Date("2019-03-01"), new Date("2021-02-02")])
 
     const callBottomAxis = isMobile ? d3.axisBottom(xScale)
         .tickSizeOuter(0).ticks(2) : d3.axisBottom(xScale).tickSizeOuter(0).ticks(2)
@@ -106,20 +106,21 @@ function drawChart() {
 
     yAxis.selectAll('.tick')
         .select('text')
-        
+
     const line = lineGroup
         .append('path')
         .datum(d => [d[1]][0])
         .attr('stroke-width', 3)
         .attr('d', d => {
             yScale.domain(d3.extent(d, s => s.Count));
-            const selState = d[0].State
+            const selState = d[0].State;
             d3.select(`#${selState}-y-axis`)
-                .call(d3.axisLeft(yScale).tickFormat(d3.formatPrefix(".1", 1e5)).tickSize((5)).ticks(2))
+                .call(d3.axisLeft(yScale).tickFormat(d3.formatPrefix(".1", 1e5)).tickSize((5)).ticks(2));
+    
             return d3.line()
-                .x(d => xScale(d.date))
-                .y(d => yScale(d.Count))
-                .curve(d3.curveMonotoneX)(d)
+                .x(e => xScale(e.date))
+                .y(e => yScale(e.Count))
+                .curve(d3.curveMonotoneX)(d);
         })
         // .attr("stroke", "url(#line-gradient)")
         .attr('stroke', "rgb(0,0,0)")
@@ -306,7 +307,7 @@ function init() {
 
         result[0].forEach(d => {
             d.Count = +d.Count;
-            d.date = new Date(`${d.Year}-${d.Month}`)
+            d.date = new Date(`${d.time}`)
         })
         result[1].forEach(d => {
             d.birth_yoy = +d.birth_yoy;

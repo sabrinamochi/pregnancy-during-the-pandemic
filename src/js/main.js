@@ -8,6 +8,7 @@ import footer from './footer';
 import takeAGuessBar from './takeAGuessBar';
 import redditChart from './redditChart';
 import birthRate from './birthRate';
+import disparityBarChart from './disparityBarChart';
 import moreStory from './moreStory';
 
 const $body = d3.select('body');
@@ -22,6 +23,7 @@ function resize() {
     graphic.resize();
     redditChart.resize();
     birthRate.resize();
+    disparityBarChart.resize();
   }
 }
 
@@ -51,6 +53,7 @@ function init() {
   takeAGuessBar.init();
   redditChart.init();
   birthRate.init();
+  disparityBarChart.init();
   moreStory.init();
 }
 

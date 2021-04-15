@@ -427,6 +427,10 @@ sup {
 sub {
   bottom: -0.25em;
 }
+footer {
+  margin: 0 auto;
+  width: 100% !important;
+}
 footer img {
   margin: 0 auto;
 }
@@ -1067,6 +1071,75 @@ article {
     font-size: 10px;
     font-weight: regular;
   }
+}
+#less-baby .disparity-bar-charts {
+  height: 60vh;
+  width: 100%;
+  margin: auto;
+}
+@media (max-width: 767px) {
+  #less-baby .disparity-bar-charts {
+    height: 50vh;
+  }
+}
+#less-baby .disparity-bar-charts .x-axis .tick line {
+  opacity: 0;
+}
+.olive {
+  position: relative;
+}
+.olive .paper {
+  position: relative;
+  height: 50vh;
+  width: 100%;
+  background: rgba(255,255,255,0.9);
+  -webkit-box-shadow: 0px 0px 5px 0px #888;
+          box-shadow: 0px 0px 5px 0px #888;
+}
+.olive .paper::before {
+  content: '';
+  position: absolute;
+  left: 45px;
+  height: 100%;
+  width: 2px;
+  background: rgba(255,0,0,0.4);
+}
+.olive .paper .lines {
+  margin-top: 40px;
+  height: calc(100% - 40px);
+  width: 100%;
+  background-image: -o-repeating-linear-gradient(#fff 0px, #fff 24px, #4682b4 25px);
+  background-image: repeating-linear-gradient(#fff 0px, #fff 24px, #4682b4 25px);
+}
+.olive .paper .text {
+  position: absolute;
+  top: 54px;
+  left: 55px;
+  bottom: 10px;
+  right: 10px;
+  line-height: 25px;
+  overflow: hidden;
+  outline: none;
+  font-family: 'Haeres';
+}
+.olive .paper .holes {
+  position: absolute;
+  left: 10px;
+  height: 25px;
+  width: 25px;
+  background: #fafad2;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 0px 0px 2px 0px #888;
+          box-shadow: inset 0px 0px 2px 0px #888;
+}
+.olive .paper .hole-top {
+  top: 10%;
+}
+.olive .paper .hole-middle {
+  top: 50%;
+}
+.olive .paper .hole-bottom {
+  bottom: 10%;
 }
 #more-stories audio {
   margin: 2rem 0;
