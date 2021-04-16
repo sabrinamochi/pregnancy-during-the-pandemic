@@ -5,6 +5,7 @@ import linkFix from './utils/link-fix';
 import modalSetup from './utils/modal-a11y';
 import graphic from './graphic';
 import footer from './footer';
+import intro from './intro';
 import takeAGuessBar from './takeAGuessBar';
 import redditChart from './redditChart';
 import birthRate from './birthRate';
@@ -55,6 +56,7 @@ function init() {
   birthRate.init();
   disparityBarChart.init();
   moreStory.init();
+  intro.init();
 }
 
 init();

@@ -12,15 +12,28 @@ phone = "(max-width: 767px)"
         width $phone-column-width
     margin 3em auto
 
+figure
+    margin 3em 0
+    p.credit
+        margin 0
+        font-size 14px
+        @media phone
+            font-size 12px
+        font-family $sans
+        color $gray
+
 h2
     font-family $ft-grotzec
-    font-size xx-large
+    font-size 30px
     line-height 110%
     @media phone 
         font-size x-large
 
 /* chart */
 h3
+    font-size 24px
+    @media phone 
+        font-size 20px
     font-family $ft-grotzec
 h5 
     line-height 120%
@@ -70,13 +83,12 @@ h5
 article 
         margin 1.5em 0
 
-.overview, .murray
+.murray
     &__img
         margin 0 auto
         width $column-width
         @media phone
             width $phone-column-width
-
 
 .hopecovid
     &__bars
@@ -162,15 +174,20 @@ article
                 flex-direction column-reverse
     .scroll__graphic
         // overflow hidden
-        height 65vh
         position sticky
         position -webkit-sticky
-        top 10rem
+        top 8em
         align-self start
         width 60%
         @media phone
             top 5rem
-            width 98%
+            width 100%
+        .explain
+            font-family $sans
+            font-size 15px
+            color #5f5f5f
+            line-height 130%
+            
     .scroll__text
         position relative
         margin auto
@@ -189,22 +206,28 @@ article
         margin-top 10rem
     .tooltip
         h4 
-                text-align center
+            text-align center
+            margin 1rem 0 0
         .text
             h4
                 font-size 14px
             .text-container
                 display flex
                 justify-content center
+                font-family $sans
                 div
                     width 30%
                     p
                         margin 0
-                        font-size 12px
+                        font-size 10px
                         line-height 110%
                         text-align center
+                    p:first-of-type
+                        font-size 15px
                 div:first-of-type
                     margin-right 3rem
+                    @media phone
+                        margin-right 1rem
         .chart
             h4
                 font-size 14px
@@ -215,10 +238,26 @@ article
                     width 8rem
                 margin 0 auto
                 display grid
+                font-family $sans
+                .bar-group:first-of-type
+                    div
+                        padding-top 1px
+                    div:last-of-type
+                        border-top 1px solid $gray
                 .bar-group
                     display flex
                     align-items center
                     justify-content space-between
+                    .barDiv0
+                        position relative
+                        .scale-0
+                            position absolute
+                            left 0
+                            top -12px
+                        .scale-25
+                            position absolute
+                            right 0
+                            top -12px
                     div
                         font-size 10px
                         width 50%
@@ -228,7 +267,7 @@ article
                             display inline-block
                     div:first-of-type
                         margin-right 1rem
-                        width 40%
+                        width 50%
                         text-align right
                         @media phone
                             margin-right 0
@@ -240,7 +279,7 @@ article
     .birth-rates-chart
         height 60vh
         width 100%
-        margin auto
+        margin 3em auto 0
         @media phone 
             height 50vh
         .y-axis .tick text 
@@ -254,24 +293,29 @@ article
             transform translate(-15px, -20px)
             fill $pink
             font-weight bold
+            font-family $sans
             @media phone 
                 font-size 10px
                 font-weight regular
     .disparity-bar-charts
-        height 60vh
+        height 50vh
         width 100%
-        margin auto
+        margin 0 auto
         @media phone 
-            height 50vh
-        .x-axis
+            height 40vh
+        .x-axis, .y-axis
             .tick line
                 opacity 0
-
+            .tick text
+                @media phone
+                    font-size 8px
 .olive
     position relative
     .paper
         position relative
-        height 50vh
+        height 45vh
+        @media phone
+            height 60vh
         width 100%
         background rgba(255,255,255,0.9)
         // margin -275px -225px
@@ -285,11 +329,11 @@ article
             height 100%
             width 2px
             background rgba(255,0,0,0.4)
-        .lines 
-            margin-top: 40px
-            height calc(100% - 40px)
-            width 100%
-            background-image repeating-linear-gradient(white 0px, white 24px, steelblue 25px)
+        // .lines 
+        //     margin-top: 40px
+        //     height calc(100% - 40px)
+        //     width 100%
+        //     background-image repeating-linear-gradient(white 0px, white 24px, steelblue 25px)
                 
         .text 
             position absolute
@@ -301,7 +345,9 @@ article
             overflow hidden
             outline none
             font-family Bradley Hand, cursive
-                
+            font-size x-large
+            @media phone
+                font-size medium
         .holes 
             position absolute
             left 10px
@@ -322,18 +368,16 @@ article
 
 
 #more-stories
+    position relative
     audio 
         margin 2rem 0
         width 95%
-    .title__buttons
-        display flex
-        justify-content space-between
-        align-items center
+    h2 
+        margin 0 0 2rem
+        text-align center
         @media phone
-                flex-direction column
-                align-items flex-start
-        h2 
-            margin-top 0
+            text-align left
+        font-size 40px
     .story__container
         display none
         &.active
@@ -341,12 +385,15 @@ article
         h3
             @media phone
                 margin-top 0
+        figure
+            margin 0
         &__content
             display flex
             justify-content space-between
             @media phone
                 flex-direction column
             &__text__holder
+                padding 1rem 0
                 width 40%
                 @media phone
                     width 95%
@@ -363,28 +410,32 @@ article
                     flex-direction column-reverse
     
     .button__container
-        position relative
+        position absolute
+        top 35vh
+        transform translateX(-50%)
+        left 50%
         z-index 100
         display flex
-        // justify-content flex-end
+        justify-content space-between
         padding 0.5rem 0 0.25rem 0
-        width 20%
+        width 130%
         @media phone
-            width 80%
-        .button__previous
-            border 1px solid $black
-        .button__next
-            border-top 1px solid $black
-            border-right 1px solid $black
-            border-bottom 1px solid $black
+            width 120%
+        .button__previous, .button__next
+            // border 1px solid $black
+            // border-radius 3px
+        // .button__next
+        //     border-top 1px solid $black
+        //     border-right 1px solid $black
+        //     border-bottom 1px solid $black
         button 
             display flex
             align-content center
             justify-content center
-            flex-basis 50%
+            flex-basis 5%
             font-size 2rem
             color $black
-            height 30px
+            height 55px
             // flex-basis 10%
             background $white
             .icon
@@ -392,27 +443,29 @@ article
                 margin auto
                 width 20px
                 height 0.8px
-                background $black
+                // background $black
             .arrow-left
                 &::before 
                     content ''
                     position absolute
-                    left 0.8px
-                    top -4px
-                    width 9px
-                    height 9px
-                    border-top 1px solid $black
-                    border-right 1px solid $black
+                    left 6px
+                    top -6px
+                    width 20px
+                    height 20px
+                    border-top 3px solid $black
+                    border-right 3px solid $black
+                    border-radius 3px
                     transform rotate(-135deg)
             .arrow-right
                 &::before 
                     content ''
                     position absolute
-                    right 0.8px
-                    top -4px
-                    width 9px
-                    height 9px
-                    border-top 1px solid $black
-                    border-right 1px solid $black
+                    right 6px
+                    top -6px
+                    width 20px
+                    height 20px
+                    border-top 3px solid $black
+                    border-right 3px solid $black
+                    border-radius 3px
                     transform rotate(45deg)
       

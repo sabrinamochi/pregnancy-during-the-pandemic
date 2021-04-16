@@ -1,3 +1,7 @@
+/* Device media queries */
+tablet = "(min-width: 768px) and (max-width: 979px)"
+phone = "(max-width: 767px)"
+
 set-type-class(all, true)
 
 // Various hides
@@ -63,6 +67,11 @@ $diameter = 35vmax
 		animation:
 			hue 10s 0s linear infinite,
 			move2 20s 0s linear infinite
+		@media phone
+			animation:
+				hue 10s 0s linear infinite,
+				move2mobile 20s 0s linear infinite
+				
 
 @keyframes hue
 	0%
@@ -73,19 +82,35 @@ $diameter = 35vmax
 @keyframes move1
 	0%
 		left 50vw
+		top 20vh
 	50%
 		left 80vw
+		top 100vh
 	100%
 		left 50vw
+		top 20vh
 
 @keyframes move2
 	0%
 		left 20vw
+		top 280vh
 	50%
-		left 60vw
+		left 80vw
+		top 350vh
 	100%
 		left 20vw
+		top 280vh
 
+@keyframes move2mobile
+	0%
+		left 20vw
+		top 220vh
+	50%
+		left 80vw
+		top 300vh
+	100% 
+		left 20vw
+		top 220vh
 // .bounce 
 //   animation bounce 2s infinite
 //   -webkit-animation bounce 2s infinite

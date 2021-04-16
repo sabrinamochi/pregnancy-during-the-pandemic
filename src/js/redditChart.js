@@ -5,21 +5,6 @@ import scrollama from "scrollama";
 
 var Stickyfill = require('stickyfilljs')
 
-const MARGIN = {
-    top: 20,
-    right: 40,
-    bottom: 50,
-    left: 40
-}
-let h = window.innerHeight,
-    w = window.innerWidth,
-    height = 0,
-    width = 0,
-    boundedWidth, boundedHeight,
-    isMobile = w <= 600 ? true : false,
-    xAxis, yAxis,
-    dataset;
-
 const $container = d3.select('.reddit__container');
 const $graphic = $container.select('.scroll__graphic');
 var $tip = $container.select(".tooltip");
@@ -31,12 +16,31 @@ const $gLine = $gVis.select('#sentiment')
 const $gBar = $gVis.select('#number')
 const $xAxis = $svg.select('.x-axis')
 const $yAxis = $svg.select('.y-axis')
+const $explain = $graphic.select('.explain')
+
+
+let h = window.innerHeight,
+    w = window.innerWidth,
+    height = 0,
+    width = 0,
+    explainTextHeight = $explain.node().getBoundingClientRect().height,
+    boundedWidth, boundedHeight,
+    isMobile = w <= 600 ? true : false,
+    yAxis,
+    dataset;
+
+const MARGIN = {
+    top: 20,
+    right: 40,
+    bottom: 30,
+    left: 40
+}
 
 const xScale = d3.scaleTime(),
     yScale = d3.scaleLinear();
 
 const selValueCol = '30day_avg_sentiment';
-const tipXOffset = 60;
+let tipXOffset = isMobile ? 0 : 60;
 
 function drawChart() {
     $gLine.selectAll('*').remove();
@@ -51,9 +55,10 @@ function drawChart() {
     const callBottomAxis = isMobile ? d3.axisBottom(xScale)
         .tickSizeOuter(0).ticks(5) : d3.axisBottom(xScale).tickSizeOuter(0).ticks(5)
 
-    xAxis = $xAxis
+    $xAxis
         .attr('transform', `translate(${MARGIN.left}, ${MARGIN.top + boundedHeight})`)
         .call(callBottomAxis)
+
     yAxis = $yAxis
         .attr('transform', `translate(${MARGIN.left + boundedWidth}, ${MARGIN.top})`)
         .call(d3.axisRight(yScale).tickSize((10)).ticks(5))
@@ -140,7 +145,7 @@ function drawChart() {
 
     const formatTime = d3.timeFormat("%B %d, %Y")
     const barDataScale = d3.scaleLinear()
-        .domain([0, 30])
+        .domain([0, 20])
         .range([0, 100])
 
     mouseG.append('rect') // append a rect to catch mouse movements on canvas
@@ -161,18 +166,27 @@ function drawChart() {
             mouseCircle
                 .attr('cx', x)
                 .attr('cy', y)
-            
-            const tipW = $tip.node().getBoundingClientRect().width
+
+            const tipW = $tip.node().getBoundingClientRect().width,
+                tipH = $tip.node().getBoundingClientRect().height;
 
             $tip
-                .style('left', ()=>{
-                    if ((boundedWidth - x) < 50){
+                .style('left', () => {
+
+                    if ((boundedWidth - x) < 100) {
                         return `${x - tipXOffset / 2 - tipW }px`
-                    } else{
+                    } else {
                         return `${x + tipXOffset}px`
                     }
                 })
-                .style('top', `${y}px`)
+                .style('top', () => {
+
+                    if ((boundedHeight - y) < 100) {
+                        return `${y - tipXOffset / 2 - tipH }px`
+                    } else {
+                        return `${y}px`
+                    }
+                })
             $tip.select('.date')
                 .html(formatTime(selectedData.date))
             $tip.select('#avg-sentiment')
@@ -205,12 +219,25 @@ function drawChart() {
                 .append('div')
                 .append('span')
                 .html(d => `${d[0]} ${d[1]}`)
-            barContainer
+
+            const bar = barContainer
                 .append('div')
-                .append('span')
+                .attr('class', (d, i) => `barDiv${i}`)
+
+            bar.append('span')
                 .attr('class', 'bar')
                 .style('width', d => barDataScale(d[2]) + '%')
 
+            // const bar0Height = d3.selectAll('.barDiv0').nodes()[0].clientHeight
+
+            d3.selectAll('.barDiv0')
+                .append('span')
+                .attr('class', 'scale-0')
+                .html('0')
+            d3.selectAll('.barDiv0')
+                .append('span')
+                .attr('class', 'scale-25')
+                .html('25')
 
 
 
@@ -224,15 +251,15 @@ function drawChart() {
                 .style('opacity', 1)
                 .style('visibility', 'visible')
         })
-    .on('mouseout', function () {
-        // mouseLine
-        //     .style('opacity', 0)
-        mouseCircle
-            .style('opacity', 0)
-        $tip
-            .style('opacity', 0)
-            .style('visibility', 'hidden')
-    })
+        .on('mouseout', function () {
+            // mouseLine
+            //     .style('opacity', 0)
+            mouseCircle
+                .style('opacity', 0)
+            $tip
+                .style('opacity', 0)
+                .style('visibility', 'hidden')
+        })
 
 }
 
@@ -240,13 +267,18 @@ function updateDimensions() {
     h = window.innerHeight;
     w = window.innerWidth;
     isMobile = w <= 600 ? true : false;
-    height = $graphic.node().offsetHeight;
+    tipXOffset = isMobile ? 0 : 60;
+    explainTextHeight = $explain.node().getBoundingClientRect().height;
+    height = isMobile ? h * 0.6 - explainTextHeight : h * 0.6 - explainTextHeight;
     width = $graphic.node().offsetWidth;
+    MARGIN.bottom = 30;
     boundedWidth = width - MARGIN.left - MARGIN.right
     boundedHeight = height - MARGIN.top - MARGIN.bottom
     $svg.attr('width', width)
         .attr('height', height)
     $gVis.attr('transform', `translate(${MARGIN.left}, ${MARGIN.top})`)
+    $explain.style('transform', `translate(${MARGIN.left}px, ${MARGIN.top}px)`)
+        .style('width', `${boundedWidth}px`)
     xScale
         .range([0, boundedWidth])
     yScale
@@ -289,7 +321,7 @@ function setupScroller() {
 
 const sentimentDataPath = '[final-rm-stwords]daily_posts_sentiment_since_2020_jan.csv'
 // dailyPostDataPath = '[final]daily_posts_since_2020_jan.csv',
-    
+
 
 function init() {
     // loadData([dailyPostDataPath, sentimentDataPath]).then(result => {
@@ -308,7 +340,7 @@ function init() {
             d.date = new Date(d.date)
         })
         dataset = result.filter(d => d['30day_avg_sentiment'] !== '' && d['30day_avg_sentiment'] > 0)
-        console.log(dataset)
+        // console.log(d3.extent())
         resize();
         setupScroller();
     }).catch(console.error);

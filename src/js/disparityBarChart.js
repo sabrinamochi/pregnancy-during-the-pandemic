@@ -2,12 +2,7 @@ import loadData from './load-data';
 import "intersection-observer";
 import scrollama from "scrollama";
 
-const MARGIN = {
-    top: 50,
-    right: 40,
-    bottom: 50,
-    left: 20
-}
+
 let h = window.innerHeight,
     w = window.innerWidth,
     height = 0,
@@ -15,6 +10,13 @@ let h = window.innerHeight,
     boundedWidth, boundedHeight, barChartWidth,
     isMobile = w <= 600 ? true : false,
     datasetRace, datasetIncome;
+
+const MARGIN = {
+    top: 50,
+    right: 40,
+    bottom: 80,
+    left: 20
+}
 
 const $container = d3.select('#less-baby');
 const $graphic = $container.select('.disparity-bar-charts');
@@ -24,33 +26,33 @@ const $gVis = $svg.select('.vis')
 const $gVisRace = $gVis.select('#race')
 const $gVisRaceBars = $gVisRace.select('.bars')
 const $gVisRaceXAxis = $gVisRace.select('.x-axis')
+const $gVisRaceYAxis = $gVisRace.select('.y-axis')
 const $gVisIncome = $gVis.select('#income')
 const $gVisIncomeBars = $gVisIncome.select('.bars')
 const $gVisIncomeXAxis = $gVisIncome.select('.x-axis')
 
 
-const xScale = d3.scaleBand().paddingInner(0.1).paddingOuter(0.2),
+const xScale = d3.scaleBand(),
     yScale = d3.scaleLinear();
 
 function drawChart() {
     yScale
         .domain([0, d3.max(datasetRace, d => d.value)])
-
     $gVisRaceXAxis
         .attr('transform', `translate(0, ${boundedHeight})`)
 
     $gVisIncome
-        .attr('transform', `translate(${barChartWidth + 10}, 0)`)
+        .attr('transform', `translate(${barChartWidth + 20}, 0)`)
     $gVisIncomeXAxis
         .attr('transform', `translate(0, ${boundedHeight})`)
 
     xScale
-        .domain(['white', 'black', 'hispanic']);
-    
+        .domain(['White', 'Black', 'Hispanic']);
+
     const raceBar = $gVisRaceBars
         .selectAll('.race-bar')
         .data(datasetRace)
-    
+
     const raceBarEnter = raceBar
         .enter()
         .append('rect')
@@ -67,16 +69,16 @@ function drawChart() {
         .tickSizeOuter(0));
 
     xScale
-        .domain(['lower_income', 'higher_income']);
+        .domain(['Lower Income', 'Higher Income']);
 
     const incomeBar = $gVisIncomeBars
         .selectAll('.income-bar')
         .data(datasetIncome);
-    
+
     const incomeBarEnter = incomeBar.enter()
         .append('rect')
         .attr('class', 'income-bar')
-    
+
     const incomeBarMerge = incomeBarEnter.merge(incomeBar)
         .attr('x', d => xScale(d.income))
         .attr('y', d => yScale(d.value))
@@ -87,24 +89,36 @@ function drawChart() {
     $gVisIncomeXAxis.call(d3.axisBottom(xScale)
         .tickSizeOuter(0));
 
+    $gVisRaceYAxis.call(d3.axisLeft(yScale)
+        .tickSizeOuter(0).ticks(5).tickFormat(d3.format(".0%")));
+
 }
 
 function updateDimensions() {
-    
+
     h = window.innerHeight;
     w = window.innerWidth;
     isMobile = w <= 600 ? true : false;
     height = $graphic.node().offsetHeight;
     width = $graphic.node().offsetWidth;
-    boundedWidth = width - MARGIN.left - MARGIN.right
+    MARGIN.bottom = 80,
+        boundedWidth = width - MARGIN.left - MARGIN.right
     boundedHeight = height - MARGIN.top - MARGIN.bottom
     $svg.attr('width', width)
         .attr('height', height)
     $gVis.attr('transform', `translate(${MARGIN.left}, ${MARGIN.top})`)
-    barChartWidth = isMobile ? boundedWidth / 2 - 10 : boundedWidth / 2 - 10;
+    barChartWidth = isMobile ? boundedWidth / 2 : boundedWidth / 2 - 10;
 
     xScale
         .range([0, barChartWidth])
+    if (isMobile) {
+        xScale
+            .paddingInner(0.3).paddingOuter(0.1)
+    } else {
+        xScale
+            .paddingInner(0.1).paddingOuter(0.2)
+    }
+
     yScale
         .range([boundedHeight, 0])
 }

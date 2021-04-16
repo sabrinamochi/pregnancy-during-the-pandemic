@@ -81,9 +81,9 @@ function drawChart() {
         .attr('transform', (d, i) => {
             const yPosition = i <= 2 ? 0 : 1;
             if (i <= 2) {
-                return `translate(${i*boundedWidth/3 + i*10}, ${yPosition*boundedHeight/2})`
+                return `translate(${i*boundedWidth/3 + i*15}, ${yPosition*boundedHeight/2})`
             } else {
-                return `translate(${(i-3)*boundedWidth/3 + (i-3)*10}, ${yPosition*boundedHeight/2 + 10})`
+                return `translate(${(i-3)*boundedWidth/3 + (i-3)*15}, ${yPosition*boundedHeight/2 + 10})`
             }
 
         })
@@ -92,7 +92,7 @@ function drawChart() {
     const stateLabel = lineGroup.append('text')
         .attr('class', 'label')
         .append('tspan')
-        .text(d => d[0])
+        .text(d => d[0].charAt(0).toUpperCase() + d[0].slice(1))
 
     const xAxis = lineGroup.append('g')
         .attr('class', 'x-axis')
@@ -102,10 +102,7 @@ function drawChart() {
     const yAxis = lineGroup.append('g')
         .attr('id', d => `${d[0]}-y-axis`)
         .attr('class', 'y-axis')
-        .attr('transform', `translate(${-5}, 0)`)
-
-    yAxis.selectAll('.tick')
-        .select('text')
+        .attr('transform', `translate(${-10}, 0)`)
 
     const line = lineGroup
         .append('path')
@@ -256,8 +253,8 @@ function updateDimensions() {
     $svg.attr('width', width)
         .attr('height', height)
     $gVis.attr('transform', `translate(${MARGIN.left}, ${MARGIN.top})`)
-    lineChartWidth = isMobile ? boundedWidth / 3 - 10 : boundedWidth / 3 - 30;
-    lineChartHeight = isMobile ? boundedHeight / 2 - 10 : boundedHeight / 2 - 50;
+    lineChartWidth = isMobile ? boundedWidth / 3 - 15 : boundedWidth / 3 - 20;
+    lineChartHeight = isMobile ? boundedHeight / 2 - 50 : boundedHeight / 2 - 80;
     xScale
         .range([0, lineChartWidth])
     yScale

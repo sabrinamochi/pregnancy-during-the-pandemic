@@ -9,7 +9,7 @@
         {{/each}}
     </article>
     <div class='birth-rates-chart'>
-        <h3>Birth Counts</h3>
+        <h3>Birth Counts in States That Has Published 2021 Data</h3>
         <svg>
             <g class='vis'></g>
         </svg>
@@ -25,6 +25,7 @@
     </article>
     <figure>
         <img src='./assets/images/pink-chair.jpg'>
+        <p class='credit'>Photo By Szu Yu Chen</p>
     </figure>
     <article>
         {{#each doc.experts-view-unemployment}}
@@ -42,6 +43,7 @@
             <g class='vis'>
                 <g id='race'>
                     <g class='bars'></g>
+                    <g class='y-axis'></g>
                     <g class='x-axis'></g>
                 </g>
                 <g id='income'>

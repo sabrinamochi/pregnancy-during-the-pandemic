@@ -9,53 +9,70 @@ phone = "(max-width: 767px)"
 	position relative
 	color $white
 	&__aurora
-		position sticky
-		top 0 
+		// position relative
+		// top 0 
 		// height 100vh
-	section
-		width 70%
-		margin 0 auto
 	&__text
 		text-align center
-		position relative
-		min-height 50rem
+		position sticky
+		top 40vh
+		// left 0
 		p
-			max-width 60%
-			height fit-content
+			max-width 45%
+			// height fit-content
 			font-size x-large
 			margin 0 auto
 			font-family $serif
-		p:first-of-type
-			padding-top 40%
-	&__text:last-of-type
-		margin-bottom 0
+			@media phone
+				max-width 90%
+				font-size medium
+			// p:first-of-type
+			// padding-top 40%
+	&__text:nth-of-type(2)
+		padding-bottom 50vh
+	// figure
+	// 	width 70%
+	// 	margin 50rem auto
 	&__img
-		margin-bottom 3rem
+		width 70%
+		@media phone
+			width $phone-column-width
+		margin 40vh auto 0
+		@media phone
+			margin-top 20vh
+		// padding-bottom 100vh
 		z-index 1000
 		position relative
-	&__quote
-		height fit-content
-		overflow auto
-		&__container
-			width 50%
-			margin 6rem 0
-			p, a
-				font-family $serif
-				// margin 0
-				color $white
-				line-height 130%
-			.quote
-				border-bottom none
-				z-index 1000
-				font-size 20px
-			.name
-				font-family $sans
-				font-size 14px
-				margin-top 0.2rem
-				
+	&__img:last-of-type
+		// height 10vh
+		margin 60vh auto 0
+		@media phone
+			margin-top 40vh
+		padding-bottom 100vh
+		&__quote
+			height fit-content
+			overflow auto
+			&__container
+				width 50%
+				margin 6rem 0
+				p, a
+					font-family $serif
+					// margin 0
+					color $white
+					line-height 130%
+				.quote
+					border-bottom none
+					z-index 1000
+					font-size 20px
+				.name
+					font-family $sans
+					font-size 14px
+					margin-top 0.2rem
+					
 
 .intro
 	margin 0 auto
+	font-family $sans
 	// padding 6rem 1rem 3rem 1rem
 
 	// &__img
@@ -74,23 +91,26 @@ phone = "(max-width: 767px)"
 		color $black
 		@media phone
 			width $phone-column-width
-			font-size 40px
 		
 	&__dek
-		max-width $column-width
-		margin 1em auto 0
-		margin-top 1rem
+		width 40%
+		margin 2em auto
 		text-align center
-	
+		@media phone
+			width 70%
+			line-height 140%
+	h1
+		font-size 70px
+		@media phone
+			font-size 50px
+
 	&__byline
 		max-width $column-width
-		margin 0 auto
-		margin-top 2rem
+		margin 2rem auto 0
 		text-align center
 	
 	&__time
 		display block
 		max-width $column-width
-		margin 0 auto
-		margin-top 1rem
+		margin 0.3rem auto 0
 		text-align center
