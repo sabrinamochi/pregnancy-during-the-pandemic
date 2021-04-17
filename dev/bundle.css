@@ -1211,6 +1211,35 @@ article {
     height: 50vh;
   }
 }
+#less-baby .birth-rates-chart .line-2019 {
+  stroke: #000;
+}
+#less-baby .birth-rates-chart .line-2020 {
+  stroke: #e8356d;
+}
+#less-baby .birth-rates-chart .legend {
+  font-weight: bold;
+}
+#less-baby .birth-rates-chart .legend-2019 {
+  fill: #000;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+  #less-baby .birth-rates-chart .legend-2019 {
+    font-size: 12px;
+  }
+}
+#less-baby .birth-rates-chart .legend-2020 {
+  fill: #e8356d;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+  #less-baby .birth-rates-chart .legend-2020 {
+    font-size: 12px;
+  }
+}
 #less-baby .birth-rates-chart .y-axis .tick text {
   text-anchor: initial;
   font-size: 10px;
@@ -1225,10 +1254,9 @@ article {
 }
 #less-baby .birth-rates-chart .label {
   font-size: 14px;
-  -webkit-transform: translate(-15px, -20px);
-      -ms-transform: translate(-15px, -20px);
-          transform: translate(-15px, -20px);
-  fill: #e8356d;
+  -webkit-transform: translate(-20px, -20px);
+      -ms-transform: translate(-20px, -20px);
+          transform: translate(-20px, -20px);
   font-weight: bold;
   font-family: Helvetica, Arial, sans-serif;
 }

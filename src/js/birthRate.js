@@ -29,7 +29,7 @@ const $gVis = $svg.select('g.vis')
 // const $xAxis = $svg.select('.x-axis')
 // const $yAxis = $svg.select('.y-axis')
 
-const xScale = d3.scaleTime(),
+const xScale = d3.scaleBand(),
     yScale = d3.scaleLinear();
 
 // const tipXOffset = 60;
@@ -37,92 +37,100 @@ const xScale = d3.scaleTime(),
 function drawChart() {
 
     $gVis.selectAll('.line-group').remove()
+    $svg.selectAll('.legend').remove()
 
     xScale
-        .domain([new Date("2019-03-01"), new Date("2021-02-02")])
+        .domain(['Oct', 'Nov', 'Dec', 'Jan', 'Feb'])
 
     const callBottomAxis = isMobile ? d3.axisBottom(xScale)
-        .tickSizeOuter(0).ticks(2) : d3.axisBottom(xScale).tickSizeOuter(0).ticks(2)
+        .tickSizeOuter(0).tickValues(xScale.domain().filter((d, i) => !(i % 2))) :
+        d3.axisBottom(xScale).tickSizeOuter(0)
 
-    // Set the gradient
-    $svg.append("linearGradient")
-        .attr("id", "line-gradient")
-        .attr("gradientUnits", "userSpaceOnUse")
-        .attr("x1", xScale.range()[0])
-        .attr("y1", yScale.range()[0])
-        .attr("x2", xScale.range()[1])
-        .attr("y2", yScale.range()[1])
-        .selectAll("stop")
-        .data([{
-                offset: "0%",
-                color: "#0E4FB3"
-            },
-            {
-                offset: "100%",
-                color: "#EDB95A"
-            }
-        ])
-        .enter().append("stop")
-        .attr("offset", function (d) {
-            return d.offset;
-        })
-        .attr("stop-color", function (d) {
-            return d.color;
-        });
-
-    const states = [...new Set(dataset.map(d => d.State))]
+    const stateList = [...new Set(dataset.map(d => d.State))]
     const groupedData = d3.group(dataset, d => d.State)
 
-    const lineGroup = $gVis.selectAll('.line-group')
-        .data(groupedData)
-        .enter()
-        .append('g')
-        .attr('class', 'line-group')
-        .attr('transform', (d, i) => {
-            const yPosition = i <= 2 ? 0 : 1;
-            if (i <= 2) {
-                return `translate(${i*boundedWidth/3 + i*15}, ${yPosition*boundedHeight/2})`
-            } else {
-                return `translate(${(i-3)*boundedWidth/3 + (i-3)*15}, ${yPosition*boundedHeight/2 + 10})`
+    // legend
+    const legend = $svg.append('g')
+        .attr('class', 'legend')
+
+    legend.append('text')
+            .attr('class', 'legend-2019')
+            .attr('transform', `translate(0,10)`)
+            .append('tspan')
+            .text('2019-2010')
+            
+    legend.append('text')
+            .attr('class', 'legend-2020')
+            .attr('transform', `translate(80,10)`)
+            .append('tspan')
+            .text('2020-2021')
+    let idx = 0;
+    groupedData.forEach((d, i) => {
+        const firstYearData = [];
+        const secondYearData = [];
+        yScale.domain(d3.extent(d, s => s.Count));
+        const selState = i;
+
+        d.forEach(v => {
+            if (v.date < new Date('2020-03-01')) {
+                firstYearData.push(v)
+            } else if (v.date > new Date('2020-9-25')) {
+                secondYearData.push(v)
             }
-
         })
 
+        const yPosition = idx <= 2 ? 0 : 1;
+        const translatePositionX = idx <= 2 ? idx * boundedWidth / 3 + idx * 15 : (idx - 3) * boundedWidth / 3 + (idx - 3) * 15
+        const translatePositionY = idx <= 2 ? yPosition * boundedHeight / 2 : yPosition * boundedHeight / 2 + 30
 
-    const stateLabel = lineGroup.append('text')
-        .attr('class', 'label')
-        .append('tspan')
-        .text(d => d[0].charAt(0).toUpperCase() + d[0].slice(1))
+        idx++
+        const lineGroup = $gVis
+            .append('g')
+            .attr('class', 'line-group')
+            .attr('transform', `translate(${translatePositionX}, ${translatePositionY})`)
 
-    const xAxis = lineGroup.append('g')
-        .attr('class', 'x-axis')
-        .attr('transform', `translate(0, ${lineChartHeight})`)
-        .call(callBottomAxis)
+        const stateLabel = lineGroup.append('text')
+            .attr('class', 'label')
+            .append('tspan')
+            .text(selState.charAt(0).toUpperCase() + selState.slice(1))
 
-    const yAxis = lineGroup.append('g')
-        .attr('id', d => `${d[0]}-y-axis`)
-        .attr('class', 'y-axis')
-        .attr('transform', `translate(${-10}, 0)`)
+        const xAxis = lineGroup.append('g')
+            .attr('class', 'x-axis')
+            .attr('transform', `translate(0, ${lineChartHeight})`)
+            .call(callBottomAxis)
 
-    const line = lineGroup
-        .append('path')
-        .datum(d => [d[1]][0])
-        .attr('stroke-width', 3)
-        .attr('d', d => {
-            yScale.domain(d3.extent(d, s => s.Count));
-            const selState = d[0].State;
-            d3.select(`#${selState}-y-axis`)
-                .call(d3.axisLeft(yScale).tickFormat(d3.formatPrefix(".1", 1e5)).tickSize((5)).ticks(2));
-    
-            return d3.line()
-                .x(e => xScale(e.date))
-                .y(e => yScale(e.Count))
-                .curve(d3.curveMonotoneX)(d);
-        })
-        // .attr("stroke", "url(#line-gradient)")
-        .attr('stroke', "rgb(0,0,0)")
-        .attr('fill', 'none')
-        .attr('stroke-width', 2)
+        const yAxis = lineGroup.append('g')
+            .attr('id', `${selState}-y-axis`)
+            .attr('class', 'y-axis')
+            .attr('transform', `translate(${-10}, 0)`)
+            .call(d3.axisLeft(yScale).tickFormat(d3.formatPrefix(".1", 1e5)).tickSize((5)).ticks(3));
+
+        const lineGen = d3.line()
+            .x(k => xScale(k.formatedMonth) + xScale.bandwidth()/2)
+            .y(k => yScale(k.Count))
+            .curve(d3.curveStepBefore)
+
+        const line2019 = lineGroup
+            .append('path')
+            .datum(firstYearData)
+            .attr('class', 'line-2019')
+            .attr('d',  lineGen)
+            .attr('fill', 'none')
+            .attr('stroke-width', 2)
+
+        const line2020 = lineGroup
+            .append('path')
+            .datum(secondYearData)
+            .attr('class', 'line-2020')
+            .attr('d', lineGen)
+            .attr('fill', 'none')
+            .attr('stroke-width', 2)
+
+    })
+
+
+
+
 
 
 
@@ -254,7 +262,7 @@ function updateDimensions() {
         .attr('height', height)
     $gVis.attr('transform', `translate(${MARGIN.left}, ${MARGIN.top})`)
     lineChartWidth = isMobile ? boundedWidth / 3 - 15 : boundedWidth / 3 - 20;
-    lineChartHeight = isMobile ? boundedHeight / 2 - 50 : boundedHeight / 2 - 80;
+    lineChartHeight = isMobile ? boundedHeight / 2 - 40 : boundedHeight / 2 - 50;
     xScale
         .range([0, lineChartWidth])
     yScale
@@ -297,7 +305,11 @@ function resize() {
 
 const birthCountsPath = 'birth_rates/[final]all_states_births.csv',
     birthYoYPath = 'birth_rates/[final]all_states_yoybirths.csv'
-
+const numberToMonthScale = d3.scaleOrdinal()
+    .domain(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'])
+    .range(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ])
 
 function init() {
     loadData([birthCountsPath, birthYoYPath]).then(result => {
@@ -305,12 +317,13 @@ function init() {
         result[0].forEach(d => {
             d.Count = +d.Count;
             d.date = new Date(`${d.time}`)
+            d.formatedMonth = numberToMonthScale(d.Month)
         })
         result[1].forEach(d => {
             d.birth_yoy = +d.birth_yoy;
             d.date = new Date(`${d.Year}-${d.month}`)
         })
-        dataset = result[0]
+        dataset = result[0].filter(d => d.date > new Date('2019-09-25'))
         resize();
         // setupScroller();
     }).catch(console.error);
