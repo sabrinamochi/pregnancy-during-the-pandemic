@@ -30,7 +30,7 @@ let h = window.innerHeight,
     dataset;
 
 const MARGIN = {
-    top: 20,
+    top: 40,
     right: 40,
     bottom: 30,
     left: 40
@@ -69,14 +69,14 @@ function drawChart() {
 
     const yLabel = $gVis.append('text')
         .attr('class', 'label y-label')
-        .attr('transform', `translate(-${boundedWidth}, 0)`)
+        .attr('transform', `translate(${boundedWidth}, 0)`)
         .selectAll('tspan')
         .data(['Sentiment', 'Score'])
         .enter().append('tspan')
-    yLabel
         .text(d => d)
-        .attr('x', -35)
-        .attr('y', (d, i) => -MARGIN.top / 2 + i * 30)
+        .attr('x', 15)
+        .attr('y', (d, i) => -MARGIN.top / 1.5 + i * 12)
+     
 
     // const xLabel = $gVis.append('text')
     //     .attr('class', 'label', 'x-label')
@@ -249,7 +249,7 @@ function drawChart() {
                 .style('opacity', 1)
             $tip
                 .style('opacity', 1)
-                .style('visibility', 'visible')
+                .style('display', 'block')
         })
         .on('mouseout', function () {
             // mouseLine
@@ -258,7 +258,7 @@ function drawChart() {
                 .style('opacity', 0)
             $tip
                 .style('opacity', 0)
-                .style('visibility', 'hidden')
+                .style('display', 'none')
         })
 
 }

@@ -54,16 +54,31 @@ function drawChart() {
         .attr('class', 'legend')
 
     legend.append('text')
-            .attr('class', 'legend-2019')
-            .attr('transform', `translate(0,10)`)
-            .append('tspan')
-            .text('2019-2010')
-            
+        .attr('class', 'legend-2019')
+        .attr('transform', `translate(12,10)`)
+        .append('tspan')
+        .text('2019-2010')
+
+    legend.append('line')
+        .attr('class', 'legend-2019-line')
+        .attr('x1',0)
+        .attr('x2', 10)
+        .attr('y1',10)
+        .attr('y2', 0)
+
     legend.append('text')
-            .attr('class', 'legend-2020')
-            .attr('transform', `translate(80,10)`)
-            .append('tspan')
-            .text('2020-2021')
+        .attr('class', 'legend-2020')
+        .attr('transform', `translate(122,10)`)
+        .append('tspan')
+        .text('2020-2021')
+
+    legend.append('line')
+        .attr('class', 'legend-2020-line')
+        .attr('x1',110)
+        .attr('x2', 120)
+        .attr('y1',10)
+        .attr('y2', 0)
+
     let idx = 0;
     groupedData.forEach((d, i) => {
         const firstYearData = [];
@@ -72,11 +87,11 @@ function drawChart() {
         const selState = i;
 
         d.forEach(v => {
-            if (v.date < new Date('2020-03-01')) {
+            if (v.date < new Date('2020/02/25')) {
                 firstYearData.push(v)
-            } else if (v.date > new Date('2020-9-25')) {
+            } else if (v.date > new Date('2020/9/25')) {
                 secondYearData.push(v)
-            }
+            } 
         })
 
         const yPosition = idx <= 2 ? 0 : 1;
@@ -84,6 +99,7 @@ function drawChart() {
         const translatePositionY = idx <= 2 ? yPosition * boundedHeight / 2 : yPosition * boundedHeight / 2 + 30
 
         idx++
+
         const lineGroup = $gVis
             .append('g')
             .attr('class', 'line-group')
@@ -106,18 +122,10 @@ function drawChart() {
             .call(d3.axisLeft(yScale).tickFormat(d3.formatPrefix(".1", 1e5)).tickSize((5)).ticks(3));
 
         const lineGen = d3.line()
-            .x(k => xScale(k.formatedMonth) + xScale.bandwidth()/2)
+            .x(k => xScale(k.formatedMonth) + xScale.bandwidth() / 2)
             .y(k => yScale(k.Count))
             .curve(d3.curveStepBefore)
-
-        const line2019 = lineGroup
-            .append('path')
-            .datum(firstYearData)
-            .attr('class', 'line-2019')
-            .attr('d',  lineGen)
-            .attr('fill', 'none')
-            .attr('stroke-width', 2)
-
+  
         const line2020 = lineGroup
             .append('path')
             .datum(secondYearData)
@@ -125,6 +133,17 @@ function drawChart() {
             .attr('d', lineGen)
             .attr('fill', 'none')
             .attr('stroke-width', 2)
+
+        const line2019 = lineGroup
+            .append('path')
+            .datum(firstYearData)
+            .attr('class', 'line-2019')
+            .attr('d', lineGen)
+            .attr('fill', 'none')
+            .attr('stroke-width', 2)
+
+
+
 
     })
 
