@@ -47,7 +47,7 @@ phone = "(max-width: 767px)"
 		// height 10vh
 		margin 60vh auto 0
 		@media phone
-			margin-top 40vh
+			margin-top 25vh
 		padding-bottom 100vh
 		&__quote
 			height fit-content
@@ -68,6 +68,18 @@ phone = "(max-width: 767px)"
 					font-family $sans
 					font-size 14px
 					margin-top 0.2rem
+
+	a#play-pause-button
+		position sticky
+		font-size 50px
+		top 55px
+		left 20px
+		border-bottom 0	
+		cursor pointer
+		&:before 
+			color white
+	audio 
+		display none
 					
 
 .intro
@@ -106,7 +118,7 @@ phone = "(max-width: 767px)"
 
 	&__byline
 		max-width $column-width
-		margin 2rem auto 0
+		margin 3rem auto 0
 		text-align center
 	
 	&__time

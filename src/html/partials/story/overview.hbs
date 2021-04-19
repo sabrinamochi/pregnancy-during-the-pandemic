@@ -2,12 +2,20 @@
     <article>
         <div>
             {{#each doc.pregnancy-overall}}
-                <p>
-                    {{value}}
-                </p>
+            <p>
+                {{value}}
+            </p>
             {{/each}}
         </div>
     </article>
+    <div class='overview__audio'>
+        <h3>Listen</h3>
+        <p class='credit'>Stories from Juliet Murray, Quintett Bowers and Olive Deavers</p>
+        <audio id='opening-audio' controls>
+            <source src="./assets/audios/opening-audio.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
     <figure class='overview__img'>
         <img src='assets/images/ultrasound-illustration.png'>
     </figure>

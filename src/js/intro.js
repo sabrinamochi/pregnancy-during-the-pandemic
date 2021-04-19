@@ -50,8 +50,6 @@ const STEP = {
 }
 
 
-
-
 let currentStep = ''
 
 function handleStepEnter({
