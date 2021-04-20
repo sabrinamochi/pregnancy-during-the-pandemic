@@ -14,7 +14,7 @@ let h = window.innerHeight,
 const MARGIN = {
     top: 50,
     right: 40,
-    bottom: 80,
+    bottom: 30,
     left: 20
 }
 
@@ -101,8 +101,7 @@ function updateDimensions() {
     isMobile = w <= 600 ? true : false;
     height = $graphic.node().offsetHeight;
     width = $graphic.node().offsetWidth;
-    MARGIN.bottom = 80,
-        boundedWidth = width - MARGIN.left - MARGIN.right
+    boundedWidth = width - MARGIN.left - MARGIN.right
     boundedHeight = height - MARGIN.top - MARGIN.bottom
     $svg.attr('width', width)
         .attr('height', height)
