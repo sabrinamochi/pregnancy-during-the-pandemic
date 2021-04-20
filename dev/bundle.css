@@ -756,6 +756,7 @@ header.is-sticky.is-dark .header__toggle.is-visible span svg {
 @media (max-width: 767px) {
   .opening__img:last-of-type {
     margin-top: 25vh;
+    padding-bottom: 120vh;
   }
 }
 .opening__img:last-of-type__quote {
@@ -932,16 +933,11 @@ article {
   margin: 1.5em 0;
 }
 .overview__audio audio {
-  width: 60%;
+  width: 100%;
   margin: 0.5rem 0 0;
   -webkit-transform: translateX(-5px);
       -ms-transform: translateX(-5px);
           transform: translateX(-5px);
-}
-@media (max-width: 767px) {
-  .overview__audio audio {
-    width: 100%;
-  }
 }
 .overview__img {
   margin: 2em 0;
@@ -1250,6 +1246,9 @@ article {
     text-align: left;
   }
 }
+#less-baby {
+  margin-bottom: 1em;
+}
 #less-baby .birth-rates-chart {
   height: 60vh;
   width: 100%;
@@ -1343,29 +1342,22 @@ article {
     font-size: 8px;
   }
 }
-.dashanna figure {
-  margin: 0 0 1rem 0.5rem;
-  width: 40%;
-  float: right;
-}
-@media (max-width: 767px) {
-  .dashanna figure {
-    margin: 0 0 1rem 0rem;
-    width: 50%;
-  }
+.dashanna {
+  margin: 1em auto;
 }
 .olive {
   position: relative;
+  margin-top: 1em;
 }
 .olive figure {
-  margin: 0 1rem 0 0.5rem;
-  width: 50%;
-  float: left;
+  margin: 0 0 0.5rem 1rem;
+  width: 45%;
+  float: right;
 }
 @media (max-width: 767px) {
   .olive figure {
-    margin: 0 1rem 0 0rem;
-    width: 58%;
+    margin: 0 0 0rem 1rem;
+    width: 55%;
   }
 }
 .olive .paper {
@@ -1378,7 +1370,7 @@ article {
 }
 @media (max-width: 767px) {
   .olive .paper {
-    height: 60vh;
+    height: 50vh;
   }
 }
 .olive .paper::before {
@@ -1391,15 +1383,20 @@ article {
 }
 .olive .paper .text {
   position: absolute;
-  top: 54px;
+  top: 45px;
   left: 55px;
   bottom: 10px;
   right: 10px;
   line-height: 25px;
   overflow: hidden;
   outline: none;
-  font-family: Bradley Hand, cursive;
+  font-family: monospace;
   font-size: x-large;
+}
+@media (max-width: 767px) {
+  .olive .paper .text {
+    top: 30px;
+  }
 }
 @media (max-width: 767px) {
   .olive .paper .text {

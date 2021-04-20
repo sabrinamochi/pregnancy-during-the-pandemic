@@ -89,9 +89,7 @@ article
 .overview
     &__audio
         audio
-            width 60%
-            @media phone
-                width 100%
+            width 100%
             margin 0.5rem 0 0
             transform translateX(-5px)
     &__img
@@ -304,6 +302,7 @@ article
                     
 
 #less-baby
+    margin-bottom 1em
     .birth-rates-chart
         height 60vh
         width 100%
@@ -363,28 +362,30 @@ article
                     font-size 8px
 
 .dashanna 
-    figure
-        margin 0 0 1rem 0.5rem
-        width 40%
-        float right
-        @media phone
-            margin 0 0 1rem 0rem
-            width 50%
+    margin 1em auto
+//     figure
+//         margin 0 0 1rem 0.5rem
+//         width 40%
+//         float right
+//         @media phone
+//             margin 0 0 1rem 0rem
+//             width 50%
 
 .olive
     position relative
+    margin-top 1em
     figure
-        margin 0 1rem 0 0.5rem
-        width 50%
-        float left
+        margin 0 0 0.5rem 1rem
+        width 45%
+        float right
         @media phone
-            margin 0 1rem 0 0rem
-            width 58%
+            margin 0 0 0rem 1rem
+            width 55%
     .paper
         position relative
         height 45vh
         @media phone
-            height 60vh
+            height 50vh
         width 100%
         background rgba(255,255,255,0.9)
         // margin -275px -225px
@@ -406,14 +407,16 @@ article
                 
         .text 
             position absolute
-            top 54px
+            top 45px
+            @media phone
+                top 30px
             left 55px
             bottom 10px
             right 10px
             line-height 25px
             overflow hidden
             outline none
-            font-family Bradley Hand, cursive
+            font-family monospace
             font-size x-large
             @media phone
                 font-size medium
