@@ -817,9 +817,13 @@ header.is-sticky.is-dark .header__toggle.is-visible span svg {
     width: 80%;
   }
 }
+.intro__social {
+  text-align: center;
+  font-size: larger;
+}
 .intro__dek {
   width: 40%;
-  margin: 2em auto;
+  margin: 2em auto 20px;
   text-align: center;
 }
 @media (max-width: 767px) {
@@ -838,7 +842,7 @@ header.is-sticky.is-dark .header__toggle.is-visible span svg {
 }
 .intro__byline {
   max-width: 50%;
-  margin: 3rem auto 0;
+  margin: 4rem auto 0;
   text-align: center;
 }
 .intro__time {
