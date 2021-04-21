@@ -1,51 +1,21 @@
 <div class='opening aurora'>
-	{{!-- <div class='opening__aurora'> --}}
-		<div class='opening__text'>
-			<p>{{doc.first-opening-sentence}}</p>
+	<div class='opening__text__container'>
+		<h1>{{doc.hed}}</h1>
+		<div class='opening__text__container__text'>
+			<p>{{doc.intro}}</p>
 		</div>
-		<div class='opening__text'>
-			<p>{{doc.sec-opening-sentence}}</p>
-		</div>
-		{{!--
-	</div> --}}
-	<div class='opening__img' data-step='show-first-sentence'>
-		<img src='assets/images/pregnant-belly.jpg'>
-	</div>
-	<div class='opening__img' data-step='show-second-sentence'>
-		<img>
-	</div>
-
-	{{!-- <div class='opening__quote'>
-		{{#each doc.intro-quotes}}
-		<div class='opening__quote__container' id='{{order}}' style='transform: translateX({{left}})'>
+		<button id='start-button'>Start</button>
+		<div class='sound-on-text'>
 			<p>
-				<a href='https://www.google.com' target='_blank' class='quote'>
-					{{quote}}
-				</a>
-			</p>
-			<p class='name'>
-				{{name}}
+				This website uses sound. Please activate your speakers or headphones
 			</p>
 		</div>
-		{{/each}}
-	</div> --}}
+	</div>
 </div>
-<div class='intro'>
-	<h1 class='intro__hed'>{{meta.title}}</h1>
-	<p class='intro__dek'>{{meta.description}}</p>
-	<div class='intro__social'>
-        <!-- Social media buttons -->
-        <a href="https://www.facebook.com/share.php?u=https://mediainnovation.camd.northeastern.edu/2021/loveinthetimeofcovid/szuyuchen&title=pregnancy-during-the-pandemic"
-            target="blank" style="border-bottom: solid 0 white; margin-right: 10px"><i class="fa fa-facebook"></i></a>
-        <!-- twitter -->
-        <a href="https://twitter.com/intent/tweet?status=pregnancy-during-the-pandemic via @NUjournalism Media Innovation program @CAMD+ https://mediainnovation.camd.northeastern.edu/2021/loveinthetimeofcovid/szuyuchen"
-            target="blank" style="border-bottom: solid 0 white"><i class="fa fa-twitter"></i></a>
-    </div>
-
-	<p class='intro__byline'>By
-		<a href='{{meta.author.url}}' target='_blank'>
-			<strong>{{meta.author.name}}</strong>
-		</a>, Sofia Perez, Ryan Corbin
-	</p>
-	<time class='intro__time'>Month 2020</time>
+<div class='opening__video__container'>
+	<video class='opening__video__container__video'>
+		 <source type="video/mp4">
+  		Your browser does not support the video tag.
+	</video>
+	<button id='skip-button'>Skip the intro</button>
 </div>

@@ -1,0 +1,61 @@
+<section class='main-column-width' id='less-baby'>
+    <article>
+        {{#each doc.less-baby}}
+        <div>
+            <p>
+                {{value}}
+            </p>
+        </div>
+        {{/each}}
+    </article>
+    <div class='birth-rates-chart'>
+        <h3>Birth Counts in States with 2021 Data</h3>
+        <svg>
+            <g class='vis'></g>
+        </svg>
+    </div>
+    <article>
+        {{#each doc.molly}}
+        <div>
+            <p>
+                {{value}}
+            </p>
+        </div>
+        {{/each}}
+    </article>
+    <figure>
+        <img src='./assets/images/pink-chair.jpg'>
+        <p class='credit'>Photo By Szu Yu Chen</p>
+    </figure>
+    <article>
+        {{#each doc.experts-view-unemployment}}
+        <div>
+            <p>
+                {{value}}
+            </p>
+        </div>
+        {{/each}}
+    </article>
+    <h3>Percentage of women reporting
+        wanting to delay childbearing or have fewer kids</h3>
+    <p class='credit'>Data Source: Guttmacher Institute</p>
+    <div class='disparity-bar-charts'>
+        <svg>
+            <g class='vis'>
+                <g id='race'>
+                    <g class='bars'></g>
+                    <g class='y-axis'></g>
+                    <g class='x-axis'></g>
+                </g>
+                <g id='income'>
+                    <g class='bars'></g>
+                    <g class='x-axis'></g>
+                </g>
+            </g>
+        </svg>
+    </div>
+
+    <div>
+        <p>{{doc.gutt-chart-text}}</p>
+    </div>
+</section>

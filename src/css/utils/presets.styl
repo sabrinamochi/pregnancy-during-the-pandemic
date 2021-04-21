@@ -67,10 +67,6 @@ $diameter = 35vmax
 		animation:
 			hue 10s 0s linear infinite,
 			move2 20s 0s linear infinite
-		@media phone
-			animation:
-				hue 10s 0s linear infinite,
-				move2mobile 20s 0s linear infinite
 				
 
 @keyframes hue
@@ -85,7 +81,7 @@ $diameter = 35vmax
 		top 20vh
 	50%
 		left 80vw
-		top 100vh
+		top 60vh
 	100%
 		left 50vw
 		top 20vh
@@ -93,24 +89,15 @@ $diameter = 35vmax
 @keyframes move2
 	0%
 		left 20vw
-		top 280vh
+		top 10vh
 	50%
 		left 80vw
-		top 350vh
+		top 50vh
 	100%
 		left 20vw
-		top 280vh
+		top 10vh
 
-@keyframes move2mobile
-	0%
-		left 20vw
-		top 220vh
-	50%
-		left 80vw
-		top 300vh
-	100% 
-		left 20vw
-		top 220vh
+
 // .bounce 
 //   animation bounce 2s infinite
 //   -webkit-animation bounce 2s infinite

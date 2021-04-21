@@ -1,91 +1,98 @@
-import "intersection-observer";
-import scrollama from "scrollama";
+import takeAGuessBar from './takeAGuessBar';
+import redditChart from './redditChart';
+import birthRate from './birthRate';
+import disparityBarChart from './disparityBarChart';
 
-var Stickyfill = require('stickyfilljs');
+const $videoContainer = d3.select('.opening__video__container')
+const $video = document.querySelector('video')
+const $openingContainer = d3.select('.opening')
+const $startButton = $openingContainer.select('#start-button')
+const $skipButton = d3.select('#skip-button')
+const $infection = d3.selectAll('.infection-button')
+const $isolation = d3.selectAll('.isolation-button')
+const $unexpectation = d3.selectAll('.unexpectation-button')
+const $inequality = d3.selectAll('.inequality-button')
 
-let w = window.innerWidth,
-    isMobile = w <= 600 ? true : false;
+let w = window.innerWidth;
+let isMobile = w <= 768 ? true : false;
 
-// original opacity
-d3.select('.opening__text:first-of-type')
-    .transition().duration(500)
-    .style('opacity', 1)
+function stopVideo() {
+    $videoContainer.style('display', 'none')
+    $video.pause()
+    startOverview()
+}
 
-d3.select('.opening__text:nth-of-type(2)')
-    .style('opacity', 0)
+function playVideo() {
+    $openingContainer.style('display', 'none')
+    $videoContainer.style('display', 'block')
+    $video.play()
+}
 
-const $container = d3.select('.opening');
-const $img = $container.selectAll('.opening__img');
-const STEP = {
-    'show-first-sentence': (direction) => {
-        if (direction == 'down'){
-            d3.select('.opening__text:first-of-type')
-            .transition().duration(500)
-            .style('opacity', 0)
+let count = 0
+
+function resize() {
+    w = window.innerWidth;
+    isMobile = w <= 768 ? true : false;
+    if (count == 0) {
+        if (isMobile) {
+            $video.setAttribute("src", "assets/images/opening-video-mobile.mp4");
         } else {
-            d3.select('.opening__text:first-of-type')
-            .transition().duration(500)
-            .style('opacity', 1)
+            $video.setAttribute("src", "assets/images/opening-video.mp4");
         }
-        
-        // d3.select('.opening__text:nth-of-type(2)')
-        //     .transition().duration(1000)
-        //     .style('opacity', 1)
-    },
-    'show-second-sentence': (direction) =>{
-
-        if (direction == 'down'){
-            d3.select('.opening__text:nth-of-type(2)')
-            .transition().duration(500)
-            .style('opacity', 1)
+        count++
+    } else if (count > 0) {
+        $video.pause()
+        if (isMobile) {
+            $video.setAttribute("src", "assets/images/opening-video-mobile.mp4");
         } else {
-            d3.select('.opening__text:nth-of-type(2)')
-            .transition().duration(500)
-            .style('opacity', 0)
+            $video.setAttribute("src", "assets/images/opening-video.mp4");
         }
+        $video.load()
+        $video.play()
+    } else if (count < 0) {
+        $video.pause()
     }
-    // '1': () => {
-
-    // }
 }
 
-
-let currentStep = ''
-
-function handleStepEnter({
-    index,
-    element,
-    direction
-}) {
-    currentStep = d3.select(element).attr('data-step');
-    STEP[currentStep](direction)
+function startOverview() {
+    count = -1
+    d3.selectAll('.overview').style('display', 'flex')
 }
 
-function handleStepExit({
-    index,
-    element,
-    direction
-}) {
-    currentStep = d3.select(element).attr('data-step');
-    // STEP(currentStep)
-    STEP[currentStep](direction)
-}
-
-const scroller = scrollama();
-
-function setupScroller() {
-    scroller.setup({
-            step: $img.nodes(),
-            offset: isMobile ? Math.floor(window.innerHeight * 0.9) + "px" : 0.9
-        })
-        .onStepEnter(handleStepEnter)
-        .onStepExit(handleStepExit)
+function startTab(tabName) {
+    d3.selectAll('.overview').style('display', 'none')
+    d3.selectAll('.tab').style('display', 'none').style('color', '#000')
+    d3.selectAll('.tab button').style('color', '#000')
+    d3.select(`#${tabName}`).style('display', 'block')
+    d3.selectAll(`.${tabName}-button`).style('color', '#E8356D')
+    if (tabName == 'infection') {
+        takeAGuessBar.init();
+        redditChart.init();
+        window.addEventListener('resize', () => redditChart.resize());
+    } else if (tabName == 'unexpectation'){
+        birthRate.init();
+        disparityBarChart.init();
+        window.addEventListener('resize', () => {
+            birthRate.resize();
+            disparityBarChart.resize();
+        });
+        
+    }
 }
 
 function init() {
-    setupScroller()
+    resize()
+    $startButton.on('click', playVideo)
+    $skipButton.on('click', stopVideo)
+    $video.addEventListener('ended', stopVideo)
+    $infection.on('click', () => startTab('infection'))
+    $isolation.on('click', () => startTab('isolation'))
+    $unexpectation.on('click', () => startTab('unexpectation'))
+    $inequality.on('click', () => startTab('inequality'))
 }
 
+
 export default {
+    resize,
     init
 }

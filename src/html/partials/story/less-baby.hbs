@@ -1,4 +1,6 @@
 <section class='main-column-width' id='less-baby'>
+    {{> story/buttons}}
+    <h1>Unexpectation</h1>
     <article>
         {{#each doc.less-baby}}
         <div>
@@ -54,8 +56,20 @@
             </g>
         </svg>
     </div>
-
-    <div>
-        <p>{{doc.gutt-chart-text}}</p>
-    </div>
+    <article>
+        {{#each doc.after-gutt-chart}}
+        <div>
+            <p>
+                {{value}}
+            </p>
+        </div>
+        {{/each}}
+        {{#each doc.molly-complain}}
+        <div>
+            <p>
+                {{value}}
+            </p>
+        </div>
+        {{/each}}
+    </article>
 </section>

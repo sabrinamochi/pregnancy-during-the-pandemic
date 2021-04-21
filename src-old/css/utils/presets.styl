@@ -1,0 +1,167 @@
+/* Device media queries */
+tablet = "(min-width: 768px) and (max-width: 979px)"
+phone = "(max-width: 767px)"
+
+set-type-class(all, true)
+
+// Various hides
+.hide-accessible
+	hidden(accessible)
+.hide-invisible
+	hidden(invisible)
+.hide-display
+	hidden()
+	
+// Skip to main for accessibility
+.skip-to-main
+	border none
+	hidden(accessible)
+	&:focus 
+		width auto
+		height auto
+		background-color $off-white
+		padding 0.5rem
+		z-index set-index(overlay)
+
+.prose
+	max-width $column-width
+	margin 0 auto
+	padding 0 1rem
+
+.media-overlay
+	position absolute
+	top 0
+	left 0
+	width 100%
+	height 100%
+	background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkRDMDBGQ0Y5NEI4NjExRTM5RTg2QTY1RTUyQjIxNEQyIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkRDMDBGQ0ZBNEI4NjExRTM5RTg2QTY1RTUyQjIxNEQyIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6REMwMEZDRjc0Qjg2MTFFMzlFODZBNjVFNTJCMjE0RDIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6REMwMEZDRjg0Qjg2MTFFMzlFODZBNjVFNTJCMjE0RDIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6C0EmkAAAAGElEQVR42mJiYGD4DwQMTECCEchhAAgwAEcGBv9dngKPAAAAAElFTkSuQmCC')
+
+
+#starter-guide
+	max-width 40rem
+	margin 0 auto
+
+$diameter = 35vmax
+
+.aurora
+	position relative
+	background-color $black
+	// z-index -1
+	&:before,
+	&:after
+		content ''
+		display block
+		position absolute
+		width 1px
+		height 1px
+		border-radius 100%
+		opacity .18
+		// transform rotate(55deg)
+	&:before
+		box-shadow 0 0 $diameter $diameter red
+		animation:
+			hue 5s 0s linear infinite,
+			move1 10s 0s linear infinite
+	&:after
+		box-shadow 0 0 $diameter $diameter cyan
+		animation:
+			hue 10s 0s linear infinite,
+			move2 20s 0s linear infinite
+		@media phone
+			animation:
+				hue 10s 0s linear infinite,
+				move2mobile 20s 0s linear infinite
+				
+
+@keyframes hue
+	0%
+		filter hue-rotate(0deg)
+	100%
+		filter hue-rotate(360deg)
+
+@keyframes move1
+	0%
+		left 50vw
+		top 20vh
+	50%
+		left 80vw
+		top 100vh
+	100%
+		left 50vw
+		top 20vh
+
+@keyframes move2
+	0%
+		left 20vw
+		top 280vh
+	50%
+		left 80vw
+		top 350vh
+	100%
+		left 20vw
+		top 280vh
+
+@keyframes move2mobile
+	0%
+		left 20vw
+		top 220vh
+	50%
+		left 80vw
+		top 300vh
+	100% 
+		left 20vw
+		top 220vh
+// .bounce 
+//   animation bounce 2s infinite
+//   -webkit-animation bounce 2s infinite
+//   -moz-animation bounce 2s infinite
+//   -o-animation bounce 2s infinite
+
+// .animated 
+//   -webkit-animation-duration 1s
+//   animation-duration 1s
+//   -webkit-animation-fill-mode both
+//   animation-fill-mode: both
+
+// @-webkit-keyframes bounce 
+//   0%, 20%, 50%, 80%, 100% 
+//     -webkit-transform translateY(0)
+  
+//   40% 
+//     -webkit-transform translateY(-30px)
+  
+//   60% 
+//     -webkit-transform translateY(-15px)
+  
+
+// @-moz-keyframes bounce 
+//   0%, 20%, 50%, 80%, 100% 
+//     -moz-transform translateY(0)
+
+//   40% 
+//     -moz-transform translateY(-30px)
+  
+//   60% 
+//     -moz-transform translateY(-15px)
+  
+
+// @-o-keyframes bounce 
+//   0%, 20%, 50%, 80%, 100% 
+//     -o-transform translateY(0)
+  
+//   40% 
+//     -o-transform translateY(-30px)
+  
+//   60% 
+//     -o-transform translateY(-15px)
+  
+
+// @keyframes bounce 
+//   0%, 20%, 50%, 80%, 100% 
+//     transform translateY(0)
+  
+//   40% 
+//     transform translateY(-30px)
+  
+//   60% 
+//     transform translateY(-15px)

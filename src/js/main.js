@@ -4,12 +4,9 @@ import isMobile from './utils/is-mobile';
 import linkFix from './utils/link-fix';
 import modalSetup from './utils/modal-a11y';
 import graphic from './graphic';
-import footer from './footer';
+// import footer from './footer';
 import intro from './intro';
-import takeAGuessBar from './takeAGuessBar';
-import redditChart from './redditChart';
-import birthRate from './birthRate';
-import disparityBarChart from './disparityBarChart';
+
 // import moreStory from './moreStory';
 
 const $body = d3.select('body');
@@ -22,19 +19,7 @@ function resize() {
   if (previousWidth !== width) {
     previousWidth = width;
     graphic.resize();
-    redditChart.resize();
-    birthRate.resize();
-    disparityBarChart.resize();
-  }
-}
-
-function setupStickyHeader() {
-  const $header = $body.select('header');
-  if ($header.classed('is-sticky')) {
-    const $menu = $body.select('#slide__menu');
-    const $toggle = $body.select('.header__toggle');
-
-    modalSetup($toggle, $toggle, $header, $menu, 'a, button, .logo', true);
+    intro.resize();
   }
 }
 
@@ -46,17 +31,13 @@ function init() {
   // setup resize event
   window.addEventListener('resize', debounce(resize, 150));
   // setup sticky header menu
-  setupStickyHeader();
   // kick off graphic code
   graphic.init();
   // load footer stories
-  footer.init();
-  takeAGuessBar.init();
-  redditChart.init();
-  birthRate.init();
-  disparityBarChart.init();
-  // moreStory.init();
+  // footer.init();
   intro.init();
+  // // moreStory.init();
+
 }
 
 init();

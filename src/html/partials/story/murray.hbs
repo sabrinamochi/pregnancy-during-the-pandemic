@@ -1,11 +1,13 @@
 <section class='murray main-column-width'>
+    {{> story/buttons}}
+    <h1>Fear of Infection</h1>
     <article>
         {{#each doc.murray-part1}}
-            <div>
-                <p>
-                    {{value}}
-                </p>
-            </div>
+        <div>
+            <p>
+                {{value}}
+            </p>
+        </div>
         {{/each}}
     </article>
     <figure>
@@ -14,11 +16,11 @@
     </figure>
     <article>
         {{#each doc.murray-part2}}
-            <div>
-                <p>
-                    {{value}}
-                </p>
-            </div>
+        <div>
+            <p>
+                {{value}}
+            </p>
+        </div>
         {{/each}}
     </article>
 </section>

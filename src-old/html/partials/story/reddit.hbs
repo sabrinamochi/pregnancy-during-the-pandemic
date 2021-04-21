@@ -1,0 +1,48 @@
+<section id='reddit'>
+    <h2>{{doc.reddit-title}}</h2>
+    <div class='reddit__container'>
+        <div class='scroll__text'>
+            {{#each doc.reddit-line-chart}}
+            <div class='step' data-step='{{step}}'>
+                <p>{{text}}</p>
+            </div>
+            {{/each}}
+        </div>
+        <div class='scroll__graphic'>
+            <h3>Sentiment of r/Pregnant Posts</h3>
+            <div class='tooltip'>
+                <div class='text'>
+                    <h4 class='date'></h4>
+                    <div class='text-container'>
+                        <div>
+                            <p id='avg-sentiment'></p>
+                            <p>Average Sentiment</p>
+                        </div>
+                        <div>
+                            <p id='num-of-posts'></p>
+                            <p>Number of Posts</p>
+                        </div>
+                    </div>
+                </div>
+                <div class='chart'>
+                    <h4>Top Words</h4>
+                    <div class='scale'></div>
+                    <div class='bars'></div>
+                </div>
+            </div>
+            <svg>
+                <g class='vis'>
+                    <g id='sentiment'></g>
+                    <g id='number'></g>
+                </g>
+                <g class='axis x-axis'></g>
+                <g class='axis y-axis'></g>
+            </svg>
+            <div class='explain'>
+                {{doc.reddit-line-chart-explain}}
+            </div>
+        </div>
+
+
+    </div>
+</section>
