@@ -6,11 +6,18 @@ import modalSetup from './utils/modal-a11y';
 import graphic from './graphic';
 // import footer from './footer';
 import intro from './intro';
-
+import takeAGuessBar from './takeAGuessBar';
+import redditChart from './redditChart';
+import birthRate from './birthRate';
+import disparityBarChart from './disparityBarChart';
 // import moreStory from './moreStory';
 
 const $body = d3.select('body');
 let previousWidth = 0;
+
+const $birthRates= d3.select('.birth-rates-chart');
+const $disparityBars = d3.select('.disparity-bar-chart');
+const $redditChart = d3.select('.reddit__container');
 
 function resize() {
   // only do resize on width changes, not height
@@ -20,6 +27,9 @@ function resize() {
     previousWidth = width;
     graphic.resize();
     intro.resize();
+    birthRate.resize();
+    disparityBarChart.resize();
+    redditChart.resize();
   }
 }
 
@@ -36,6 +46,10 @@ function init() {
   // load footer stories
   // footer.init();
   intro.init();
+  birthRate.init();
+  disparityBarChart.init();
+  redditChart.init();
+  takeAGuessBar.init();
   // // moreStory.init();
 
 }

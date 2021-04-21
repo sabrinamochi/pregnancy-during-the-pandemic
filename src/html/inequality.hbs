@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang='en' data-version='{{timestamp}}'>
+
+<head>
+
+	<link rel="stylesheet" type="text/css"
+		href="https://mediainnovation.camd.northeastern.edu/2021/loveinthetimeofcovid/css/loveinthetimeofcovid.css" />
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+	{{> base/meta}}
+
+	<link inline rel='stylesheet' href='bundle.css' />
+
+	{{> base/font}}
+
+
+</head>
+
+<body>
+
+	{{> base/header}}
+
+	<main id='content'>
+
+		<div class='tab' id='inequality'>
+			<div class='cover-photo'>
+				<img src='assets/images/empty-playground.jpg'>
+			</div>
+			{{> story/inequality-opening}}
+			{{> story/quintett-racism}}
+			{{> story/hanlon-mixbags}}
+			{{> story/olive-racism}}
+			{{> story/ending}}
+		</div>
+
+	</main>
+
+	{{!-- {{> base/footer }} --}}
+
+
+	<script src='{{basepath}}assets/scripts/d3.v6.0.0.min.js'></script>
+	<script src='bundle.js?version={{timestamp}}' async></script>
+</body>
+
+</html>

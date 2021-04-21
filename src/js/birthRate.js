@@ -273,8 +273,8 @@ function updateDimensions() {
     h = window.innerHeight;
     w = window.innerWidth;
     isMobile = w <= 600 ? true : false;
-    height = $graphic.node().offsetHeight;
-    width = $graphic.node().offsetWidth;
+    height = $graphic.node() ? $graphic.node().offsetHeight : 100;
+    width = $graphic.node() ? $graphic.node().offsetWidth : 100;
     boundedWidth = width - MARGIN.left - MARGIN.right
     boundedHeight = height - MARGIN.top - MARGIN.bottom
     $svg.attr('width', width)

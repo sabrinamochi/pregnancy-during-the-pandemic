@@ -23,7 +23,7 @@ let h = window.innerHeight,
     w = window.innerWidth,
     height = 0,
     width = 0,
-    explainTextHeight = $explain.node().getBoundingClientRect().height,
+    explainTextHeight = $explain.node() ? $explain.node().getBoundingClientRect().height : 100,
     boundedWidth, boundedHeight,
     isMobile = w <= 600 ? true : false,
     yAxis,
@@ -268,9 +268,9 @@ function updateDimensions() {
     w = window.innerWidth;
     isMobile = w <= 600 ? true : false;
     tipXOffset = isMobile ? 0 : 60;
-    explainTextHeight = $explain.node().getBoundingClientRect().height;
+    explainTextHeight = $explain.node() ? $explain.node().getBoundingClientRect().height : 100,
     height = isMobile ? h * 0.6 - explainTextHeight : h * 0.6 - explainTextHeight;
-    width = $graphic.node().offsetWidth;
+    width = $graphic.node() ? $graphic.node().offsetWidth : 100;
     MARGIN.bottom = 30;
     boundedWidth = width - MARGIN.left - MARGIN.right
     boundedHeight = height - MARGIN.top - MARGIN.bottom
@@ -310,7 +310,9 @@ function handleStepEnter({
 
 
 function setupScroller() {
-    Stickyfill.add($graphic.node());
+    if ($graphic.node()){
+        Stickyfill.add($graphic.node());
+    }
     // scroller.setup({
     //         step: $step.nodes(),
     //         offset: isMobile ? Math.floor(window.innerHeight * 0.5) + "px" : 0.5

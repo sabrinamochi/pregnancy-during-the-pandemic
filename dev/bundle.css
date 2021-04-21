@@ -755,7 +755,6 @@ button:hover {
 .opening__video__container {
   position: relative;
   background: #000;
-  display: none;
   overflow: hidden;
   text-align: center;
   height: 100vh;
@@ -878,9 +877,6 @@ h5 {
 }
 article {
   margin: 1.5em 0;
-}
-.tab {
-  display: none;
 }
 .tab .tab-button-container {
   display: -webkit-box;

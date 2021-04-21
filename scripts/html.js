@@ -45,23 +45,23 @@ function loadData() {
   }, {});
 
   data.timestamp = Date.now();
-  data.basepath = ENV === 'dev' ? '' : 'https://pudding.cool/';
+  data.basepath = ENV === 'dev' ? '' : 'https://https://sabrinamochi.github.io//';
   return Promise.resolve(data);
 }
 
-function compileTemplate(data) {
-  const content = fs.readFileSync(`${DIR_IN}/index.hbs`, 'utf-8');
+function compileTemplate(data, filename) {
+  const content = fs.readFileSync(`${DIR_IN}/${filename}.hbs`, 'utf-8');
 
   const template = handlebars.compile(content);
   const result = template(data);
 
-  const output = `${DIR_TMP}/index.html`;
+  const output = `${DIR_TMP}/${filename}.html`;
   fs.writeFileSync(output, result);
 
   return Promise.resolve(output);
 }
 
-function inlineScriptStyle(input) {
+function inlineScriptStyle(input, filename) {
   return new Promise((resolve, reject) => {
     inlineSource(input, {
       compress: false,
@@ -69,7 +69,7 @@ function inlineScriptStyle(input) {
       ignore: ENV === 'dev' ? ['link', 'script'] : null,
     })
       .then(html => {
-        const output = `${DIR_OUT}/index.html`;
+        const output = `${DIR_OUT}/${filename}.html`;
         fs.writeFileSync(output, html);
         resolve(output);
       })
@@ -77,7 +77,7 @@ function inlineScriptStyle(input) {
   });
 }
 
-function inlineSVG(input) {
+function inlineSVG(input, filename) {
   return new Promise((resolve, reject) => {
     inlineSource(input, {
       compress: false,
@@ -85,7 +85,7 @@ function inlineSVG(input) {
       ignore: ['link', 'script'],
     })
       .then(html => {
-        const output = `${DIR_TMP}/index-svg.html`;
+        const output = `${DIR_TMP}/${filename}-svg.html`;
         fs.writeFileSync(output, html);
         resolve(output);
       })
@@ -99,9 +99,53 @@ function init() {
   registerHelpers()
     .then(registerPartials)
     .then(loadData)
-    .then(compileTemplate)
-    .then(inlineSVG)
-    .then(inlineScriptStyle)
+    .then((r) => compileTemplate(r, 'index'))
+    .then((r) => inlineSVG(r, 'index'))
+    .then((r) => inlineScriptStyle(r, 'index'))
+    .then(() => console.timeEnd('compiling html'))
+    .catch(err => {
+      console.log(err);
+      process.exit(1);
+    });
+    registerHelpers()
+    .then(registerPartials)
+    .then(loadData)
+    .then((r) => compileTemplate(r, 'infection'))
+    .then((r) => inlineSVG(r, 'infection'))
+    .then((r) => inlineScriptStyle(r, 'infection'))
+    .then(() => console.timeEnd('compiling html'))
+    .catch(err => {
+      console.log(err);
+      process.exit(1);
+    });
+    registerHelpers()
+    .then(registerPartials)
+    .then(loadData)
+    .then((r) => compileTemplate(r, 'isolation'))
+    .then((r) => inlineSVG(r, 'isolation'))
+    .then((r) => inlineScriptStyle(r, 'isolation'))
+    .then(() => console.timeEnd('compiling html'))
+    .catch(err => {
+      console.log(err);
+      process.exit(1);
+    });
+    registerHelpers()
+    .then(registerPartials)
+    .then(loadData)
+    .then((r) => compileTemplate(r, 'insecurity'))
+    .then((r) => inlineSVG(r, 'insecurity'))
+    .then((r) => inlineScriptStyle(r, 'insecurity'))
+    .then(() => console.timeEnd('compiling html'))
+    .catch(err => {
+      console.log(err);
+      process.exit(1);
+    });
+    registerHelpers()
+    .then(registerPartials)
+    .then(loadData)
+    .then((r) => compileTemplate(r, 'inequality'))
+    .then((r) => inlineSVG(r, 'inequality'))
+    .then((r) => inlineScriptStyle(r, 'inequality'))
     .then(() => console.timeEnd('compiling html'))
     .catch(err => {
       console.log(err);
