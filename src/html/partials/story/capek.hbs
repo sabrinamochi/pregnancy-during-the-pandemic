@@ -2,7 +2,20 @@
     {{> story/buttons}}
     <h1>Fear of Isolation</h1>
     <article>
-        {{#each doc.capek}}
+        {{#each doc.capek1}}
+        <div>
+            <p>
+                {{value}}
+            </p>
+        </div>
+        {{/each}}
+    </article>
+    <figure>
+        <img src='./assets/images/jordan.jpg'>
+        <p class='credit'>Jordan Capek sitting in a chair. Photo credit to Jordan Capek</p>
+    </figure>
+    <article>
+        {{#each doc.capek2}}
         <div>
             <p>
                 {{value}}

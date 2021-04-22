@@ -1,6 +1,21 @@
-<section class='deavers main-column-width'>
+<section class='deavers-hearbeat main-column-width'>
     <article>
-        {{#each doc.deavers-heartbeat}}
+        {{#each doc.deavers-heartbeat1}}
+        <div>
+            <p>
+                {{value}}
+            </p>
+        </div>
+        {{/each}}
+    </article>
+    <div>
+        <audio controls>
+            <source src="assets/audios/olive-heartbeat-final.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+    </div>
+    <article>
+        {{#each doc.deavers-heartbeat2}}
         <div>
             <p>
                 {{value}}
