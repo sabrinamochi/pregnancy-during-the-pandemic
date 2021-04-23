@@ -4,9 +4,10 @@ tablet = "(min-width: 768px) and (max-width: 979px)"
 phone = "(max-width: 767px)"
 
 h1
-	font-size 60px
+	font-size 48px
 	line-height 115%
-	margin 1.5rem auto
+	margin 1.5rem 0
+	font-family $le-june
 	@media phone
 		font-size 30px
 
@@ -24,21 +25,27 @@ h1
 		@media phone
 			max-width 80%
 		p
-			font-size x-large
-			font-family $serif
+			font-size 15px
+			line-height 130%
+			font-family $sans
+			margin-top 0
+			margin-bottom 0.5rem
 			@media phone
-				max-width 100%
-				font-size medium
+				font-size 14px
 		.sound-on-text p
 			font-size 15px
 			font-family $sans
 			border 1px solid $white
 			border-radius 10px
-			padding 0rem 0.2rem
+			padding 0.2rem 0.3rem
 			line-height 115%
 			@media phone
 				font-size 16px
 				padding 0.3rem 0.1rem
+		&__text, .sound-on-text 
+			max-width 85%
+			@media phone
+				max-width 90%
 button
 	max-width 25%
 	margin 2rem 0 10px
@@ -49,7 +56,7 @@ button
 	font-size 28px
 	font-weight 600
 	box-shadow 1px 1px 2px $white
-	font-family $ft-grotzec
+	font-family $sans
 	@media phone
 		max-width 40%
 	border-radius 5px
@@ -58,6 +65,7 @@ button
 		color $white
 
 .opening__video__container
+	display none
 	&__video
 		// position absolute
 		// top 50%

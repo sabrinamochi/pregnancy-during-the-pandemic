@@ -2,9 +2,14 @@
 	<div class='opening__text__container'>
 		<h1>{{doc.hed}}</h1>
 		<div class='opening__text__container__text'>
-			<p>{{doc.intro}}</p>
+			{{#each doc.pregnancy-overall}}
+			<p>
+				{{value}}
+			</p> 
+			{{/each}}
+
 		</div>
-		<button id='start-button'>Start</button>
+		<button id='start-button'>start</button>
 		<div class='sound-on-text'>
 			<p>
 				This website uses sound. Please activate your speakers or headphones
@@ -14,8 +19,8 @@
 </div>
 <div class='opening__video__container'>
 	<video class='opening__video__container__video'>
-		 <source type="video/mp4">
-  		Your browser does not support the video tag.
+		<source type="video/mp4">
+		Your browser does not support the video tag.
 	</video>
-	<button id='skip-button'>Skip the intro</button>
+	<button id='skip-button'>skip intro</button>
 </div>

@@ -79,68 +79,142 @@ h5
 
 /* */
 
-article 
-        margin 1.5em 0
-
-.tab
-    .tab-button-container
-        display flex
-        flex-wrap wrap
-        justify-content start
-        margin-bottom 3em
-        width 100%
-        @media phone
-            margin-bottom 1em
-            justify-content space-between
-        button 
-            margin-right 2rem
-            border-bottom 1px solid 
-            border-radius 0
-            @media phone
-                font-size 18px
-                margin-right 0.5rem
-                margin-top 0
-                
+      
 .overview
     height 100vh
     width 100%
     display none
-    font-size 40px
     font-family $le-june
     margin 0 auto
     align-items center
     justify-content space-around
+    color $white
     @media phone
         flex-direction column
-        font-size 35px
         justify-content center
     div 
         opacity 0
-        animation FadeIn 1s linear
-        animation-fill-mode forwards
+        animation-fill-mode forwards, forwards
         cursor pointer
+        text-align center
         @media phone
             padding 1rem 0
+        span 
+            font-size 18px
+            @media phone
+                font-size 14px
+        p
+            margin 0
+            font-size 40px
+            @media phone
+                font-size 35px
         &:hover 
             color $pink
     div:nth-child(1) 
-        animation-delay .5s
+        animation-name FadeIn, Enlarge, FadeOut 
+        animation-duration 2s, 3s, 1s
+        animation-delay .5s, 3s, 6s
     div:nth-child(2) 
-        animation-delay 1s
+        animation-name FadeIn, FadeOut
+        animation-duration 2s, 1s
+        animation-delay 1s, 3s
     div:nth-child(3) 
-        animation-delay 1.5s
+        animation-name FadeIn, FadeOut
+        animation-duration 2s, 1s
+        animation-delay 1.5s, 3s
     div:nth-child(4) 
-        animation-delay 2s
+        animation-name FadeIn, FadeOut
+        animation-duration 2s, 1s
+        animation-delay 2s, 3s
         
-    
-@keyframes FadeIn 
+@keyframes FadeIn
   0% 
-    opacity 0.2
-
+    opacity 0.1
   100%  
     opacity 1
 
+@keyframes Enlarge
+  0%
+    transform scale(1)
+  100%  
+    transform translateX(-50%) scale(2)
+    padding-left 50vw
 
+@keyframes FadeOut 
+  0% 
+    opacity 1
+  100%  
+    opacity 0
+
+/* */
+
+
+article 
+        margin 1.5em 0
+
+.tab
+    &__header
+        .cover-photo
+            height 80vh
+            width 100%
+            background-repeat repeat
+            background-size contain
+            background-position center
+    &__content
+        position relative
+        display flex
+        @media phone
+            display grid
+        .tab-button-container
+            position sticky
+            top 3em
+            left 0
+            display grid
+            justify-content start
+            margin 3em 0
+            height fit-content
+            @media phone
+                display flex
+                margin-bottom 1em
+                justify-content space-evenly
+                background-color $white
+                top 0
+                z-index 10000
+            button 
+                max-width 10%
+                margin-left 1.5rem
+                border-radius 0
+                border-bottom 1px solid 
+                font-family $le-june
+                @media phone
+                    font-size 18px
+                    margin-top 0
+                    margin-left 0
+                    max-width fit-content
+                &:hover
+                    color $pink
+
+#infection
+    .cover-photo
+        background-image url('assets/images/ultrasound-illustration.png')
+    .infection-button
+        color $pink
+#isolation
+    .cover-photo
+        background-image url('assets/images/belly-cover-photo.jpg')
+    .isolation-button
+        color $pink
+#insecurity
+    .cover-photo
+        background-image url('assets/images/empty-playground.jpg')
+    .insecurity-button
+        color $pink
+#inequality
+    .cover-photo
+        background-image url('assets/images/empty-playground.jpg')
+    .inequality-button
+        color $pink
+  
 .murray
     &__img
         margin 0 auto

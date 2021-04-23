@@ -21,18 +21,22 @@
 	{{> base/header}}
 
 	<main id='content'>
-
 		<div class='tab' id='inequality'>
-			<div class='cover-photo'>
-				<img src='assets/images/empty-playground.jpg'>
+			<div class='tab__header'>
+				<div class='cover-photo'></div>
 			</div>
-			{{> story/inequality-opening}}
-			{{> story/quintett-racism}}
-			{{> story/hanlon-mixbags}}
-			{{> story/olive-racism}}
-			{{> story/ending}}
+			<div class='tab__content'>
+				{{> story/buttons}}
+				<div class='tab__content__story main-column-width'>
+					<h1>Fear of Inequality</h1>
+					{{> story/inequality-opening}}
+					{{> story/quintett-racism}}
+					{{> story/hanlon-mixbags}}
+					{{> story/olive-racism}}
+					{{> story/ending}}
+				</div>
+			</div>
 		</div>
-
 	</main>
 
 	{{!-- {{> base/footer }} --}}
