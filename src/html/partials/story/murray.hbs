@@ -1,5 +1,5 @@
 <section class='murray'>
-    
+
     <article>
         {{#each doc.murray-part1}}
         <div>
@@ -10,11 +10,22 @@
         {{/each}}
     </article>
     <figure>
-        <img src='./assets/images/mom-kids.jpg'>
-        <p class='credit'>Photo By Szu Yu Chen</p>
+        <img src='./assets/images/juliet-husband-smile-horizontal.jpg'>
+        <p class='credit'>Juliet Murray and her fiance. Photo credit to Juliet Murray</p>
     </figure>
     <article>
         {{#each doc.murray-part2}}
+        <div>
+            <p>
+                {{value}}
+            </p>
+        </div>
+        {{/each}}
+        <figure class='baby'>
+            <img src='./assets/images/juliet-baby.jpg'>
+            <p class='credit'>Murray's baby. Photo credit to Juliet Murray</p>
+        </figure>
+        {{#each doc.murray-part3}}
         <div>
             <p>
                 {{value}}

@@ -245,13 +245,38 @@ article
             opacity 0.3
   
 .murray
-    &__img
-        margin 0 auto
-        width $column-width
+    figure.baby
+        margin 0 0 0.5rem 1rem
+        width 45%
+        float right
         @media phone
-            width $phone-column-width
+            margin 1rem auto
+            width 100%
+            float none
+
+    // figure
+    //     margin 0 auto
+    //     position relative
+    //     display grid
+    //     grid-template-columns 55% 45%
+    //     grid-template-rows 2% 98%
+    //     .parents
+    //         justify-self end
+    //         align-self end
+    //     .baby
+    //         justify-self end
+    //         align-self end
+    //         width 90%
+        
+    // &__img
+    //     margin 0 auto
+    //     width $column-width
+    //     @media phone
+    //         width $phone-column-width
+        
 
 .hopecovid
+    clear right
     &__bars
         &__container
             margin 2rem 0
@@ -451,6 +476,9 @@ article
                 float none
 #less-baby
     margin-bottom 1em
+    a 
+        color $gray
+        border-bottom 1px solid $gray
     .birth-rates-chart
         height 60vh
         width 100%
@@ -513,6 +541,7 @@ article
 .olive-racism
     position relative
     margin-top 1em
+    clear right
     .paper
         position relative
         height 45vh
@@ -579,6 +608,8 @@ article
             width 100%
             float none
 
+.hanlon-childbirdth
+    clear right
 
 .hanlon-mixbags
     figure
@@ -601,3 +632,15 @@ article
         &:hover
             background-color $black
             color $white
+
+.authors
+    margin-top 3em
+    border-top 1px solid $gray
+    color $gray
+    font-family $sans
+    li
+        font-size 14px !important
+        padding 0.2rem 0
+    a
+        color $gray
+        border-bottom 1px solid $gray

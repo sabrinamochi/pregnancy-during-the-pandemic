@@ -399,7 +399,7 @@ i {
   font-style: italic;
 }
 ul {
-  list-style-type: none;
+  list-style-position: inside;
 }
 li {
   font-size: 16px;
@@ -728,7 +728,7 @@ h1 {
   font-family: Helvetica, Arial, sans-serif;
   border: 1px solid #fff;
   border-radius: 10px;
-  padding: 0.2rem 0.3rem;
+  padding: 0.2rem 0.5rem;
   line-height: 115%;
 }
 @media (max-width: 767px) {
@@ -1113,14 +1113,20 @@ article {
 #inequality .inequality-button .button-border {
   opacity: 0.3;
 }
-.murray__img {
-  margin: 0 auto;
-  width: 50%;
+.murray figure.baby {
+  margin: 0 0 0.5rem 1rem;
+  width: 45%;
+  float: right;
 }
 @media (max-width: 767px) {
-  .murray__img {
-    width: 85%;
+  .murray figure.baby {
+    margin: 1rem auto;
+    width: 100%;
+    float: none;
   }
+}
+.hopecovid {
+  clear: right;
 }
 .hopecovid__bars__container {
   margin: 2rem 0;
@@ -1409,6 +1415,10 @@ article {
 #less-baby {
   margin-bottom: 1em;
 }
+#less-baby a {
+  color: #949494;
+  border-bottom: 1px solid #949494;
+}
 #less-baby .birth-rates-chart {
   height: 60vh;
   width: 100%;
@@ -1508,6 +1518,7 @@ article {
 .olive-racism {
   position: relative;
   margin-top: 1em;
+  clear: right;
 }
 .olive-racism .paper {
   position: relative;
@@ -1583,6 +1594,9 @@ article {
     float: none;
   }
 }
+.hanlon-childbirdth {
+  clear: right;
+}
 .hanlon-mixbags figure {
   margin: 0 0 0.5rem 1rem;
   width: 45%;
@@ -1608,6 +1622,20 @@ article {
 .next-chapter button:hover {
   background-color: #000;
   color: #fff;
+}
+.authors {
+  margin-top: 3em;
+  border-top: 1px solid #949494;
+  color: #949494;
+  font-family: Helvetica, Arial, sans-serif;
+}
+.authors li {
+  font-size: 14px !important;
+  padding: 0.2rem 0;
+}
+.authors a {
+  color: #949494;
+  border-bottom: 1px solid #949494;
 }
 @-webkit-keyframes FadeIn {
   0% {
