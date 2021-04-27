@@ -111,9 +111,12 @@ h5
         &:hover 
             color $pink
     div:nth-child(1) 
-        animation-name FadeIn, Enlarge, FadeOut 
-        animation-duration 2s, 3s, 1s
-        animation-delay .5s, 3s, 6s
+        animation-name FadeIn, Enlarge, FadeOut
+        animation-fill-mode forwards, forwards, forwards 
+        @media phone
+            animation-name FadeIn, EnlargeMobile, FadeOut 
+        animation-duration 2s, 4s, 1s
+        animation-delay .5s, 3s, 7s
     div:nth-child(2) 
         animation-name FadeIn, FadeOut
         animation-duration 2s, 1s
@@ -137,8 +140,13 @@ h5
   0%
     transform scale(1)
   100%  
-    transform translateX(-50%) scale(2)
-    padding-left 50vw
+    transform translateX(calc(45vw - 50%)) scale(2)
+
+@keyframes EnlargeMobile
+  0%
+    transform scale(1)
+  100%  
+    transform scale(1.5)
 
 @keyframes FadeOut 
   0% 

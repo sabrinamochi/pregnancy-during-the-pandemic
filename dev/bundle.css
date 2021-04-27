@@ -955,10 +955,18 @@ h5 {
 .overview div:nth-child(1) {
   -webkit-animation-name: FadeIn, Enlarge, FadeOut;
           animation-name: FadeIn, Enlarge, FadeOut;
-  -webkit-animation-duration: 2s, 3s, 1s;
-          animation-duration: 2s, 3s, 1s;
-  -webkit-animation-delay: 0.5s, 3s, 6s;
-          animation-delay: 0.5s, 3s, 6s;
+  -webkit-animation-fill-mode: forwards, forwards, forwards;
+          animation-fill-mode: forwards, forwards, forwards;
+  -webkit-animation-duration: 2s, 4s, 1s;
+          animation-duration: 2s, 4s, 1s;
+  -webkit-animation-delay: 0.5s, 3s, 7s;
+          animation-delay: 0.5s, 3s, 7s;
+}
+@media (max-width: 767px) {
+  .overview div:nth-child(1) {
+    -webkit-animation-name: FadeIn, EnlargeMobile, FadeOut;
+            animation-name: FadeIn, EnlargeMobile, FadeOut;
+  }
 }
 .overview div:nth-child(2) {
   -webkit-animation-name: FadeIn, FadeOut;
@@ -1598,9 +1606,8 @@ article {
             transform: scale(1);
   }
   100% {
-    -webkit-transform: translateX(-50%) scale(2);
-            transform: translateX(-50%) scale(2);
-    padding-left: 50vw;
+    -webkit-transform: translateX(calc(45vw - 50%)) scale(2);
+            transform: translateX(calc(45vw - 50%)) scale(2);
   }
 }
 @keyframes Enlarge {
@@ -1609,9 +1616,28 @@ article {
             transform: scale(1);
   }
   100% {
-    -webkit-transform: translateX(-50%) scale(2);
-            transform: translateX(-50%) scale(2);
-    padding-left: 50vw;
+    -webkit-transform: translateX(calc(45vw - 50%)) scale(2);
+            transform: translateX(calc(45vw - 50%)) scale(2);
+  }
+}
+@-webkit-keyframes EnlargeMobile {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+}
+@keyframes EnlargeMobile {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
   }
 }
 @-webkit-keyframes FadeOut {
