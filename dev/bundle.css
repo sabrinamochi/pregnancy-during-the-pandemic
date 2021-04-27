@@ -825,6 +825,9 @@ button:hover {
 figure {
   margin: 3em 0;
 }
+.audio-container {
+  margin: 2em 0;
+}
 p.credit {
   margin: 0;
   font-size: 14px;
@@ -838,7 +841,8 @@ p.credit {
   }
 }
 h2 {
-  font-family: 'FT Grotzec Condensed Demibold';
+  margin-top: 2em;
+  font-family: 'Le Jeune Poster Regular';
   font-size: 30px;
   line-height: 110%;
 }
@@ -849,7 +853,7 @@ h2 {
 }
 h3 {
   font-size: 24px;
-  font-family: 'FT Grotzec Condensed Demibold';
+  font-family: 'Le Jeune Poster Regular';
   line-height: 1.2;
 }
 @media (max-width: 767px) {
@@ -886,7 +890,8 @@ h5 {
   padding: 0.2rem;
   opacity: 0;
   display: none;
-  border: 3px solid #000;
+  -webkit-box-shadow: 1px 1px 3px #949494;
+          box-shadow: 1px 1px 3px #949494;
   margin: 0 auto;
   pointer-events: none;
 }
@@ -996,9 +1001,14 @@ article {
 .tab__header .cover-photo {
   height: 80vh;
   width: 100%;
-  background-repeat: repeat;
-  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
+}
+@media (max-width: 767px) {
+  .tab__header .cover-photo {
+    height: 50vh;
+  }
 }
 .tab__content {
   position: relative;
@@ -1040,48 +1050,62 @@ article {
   }
 }
 .tab__content .tab-button-container button {
-  max-width: 10%;
+  position: relative;
   margin-left: 1.5rem;
   border-radius: 0;
-  border-bottom: 1px solid;
   font-family: 'Le Jeune Poster Regular';
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
 }
 @media (max-width: 767px) {
   .tab__content .tab-button-container button {
     font-size: 18px;
     margin-top: 0;
     margin-left: 0;
-    max-width: -webkit-fit-content;
-    max-width: -moz-fit-content;
-    max-width: fit-content;
   }
 }
 .tab__content .tab-button-container button:hover {
   color: #e8356d;
 }
+.tab__content .tab-button-container button .button-border {
+  position: absolute;
+  left: 0;
+  top: 23px;
+  width: 100%;
+  height: 10px;
+  background: #e8356d;
+  opacity: 0;
+}
+@media (max-width: 767px) {
+  .tab__content .tab-button-container button .button-border {
+    top: 16px;
+    height: 8px;
+  }
+}
 #infection .cover-photo {
   background-image: url("assets/images/ultrasound-illustration.png");
 }
-#infection .infection-button {
-  color: #e8356d;
+#infection .infection-button .button-border {
+  opacity: 0.3;
 }
 #isolation .cover-photo {
   background-image: url("assets/images/belly-cover-photo.jpg");
 }
-#isolation .isolation-button {
-  color: #e8356d;
+#isolation .isolation-button .button-border {
+  opacity: 0.3;
 }
 #insecurity .cover-photo {
   background-image: url("assets/images/empty-playground.jpg");
 }
-#insecurity .insecurity-button {
-  color: #e8356d;
+#insecurity .insecurity-button .button-border {
+  opacity: 0.3;
 }
 #inequality .cover-photo {
   background-image: url("assets/images/empty-playground.jpg");
 }
-#inequality .inequality-button {
-  color: #e8356d;
+#inequality .inequality-button .button-border {
+  opacity: 0.3;
 }
 .murray__img {
   margin: 0 auto;
@@ -1209,15 +1233,6 @@ article {
 #reddit {
   margin-bottom: 5em;
 }
-#reddit h2 {
-  margin: 0 auto 1rem;
-  width: 50%;
-}
-@media (max-width: 767px) {
-  #reddit h2 {
-    width: 85%;
-  }
-}
 #reddit .reddit__container {
   width: 80%;
   margin: 0 auto;
@@ -1225,31 +1240,21 @@ article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
-@media (max-width: 767px) {
-  #reddit .reddit__container {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
-  }
-}
 #reddit .scroll__graphic {
   position: sticky;
   position: -webkit-sticky;
-  top: 8em;
   -ms-flex-item-align: start;
       align-self: start;
-  width: 60%;
-}
-@media (max-width: 767px) {
-  #reddit .scroll__graphic {
-    top: 5rem;
-    width: 100%;
-  }
+  top: 5rem;
+  width: 100%;
 }
 #reddit .scroll__graphic .explain {
   font-family: Helvetica, Arial, sans-serif;
@@ -1261,21 +1266,17 @@ article {
   font-size: 12px;
   text-anchor: end;
   font-family: Helvetica, Arial, sans-serif;
-  font-weight: bold;
 }
 #reddit .scroll__text {
   position: relative;
   margin: auto;
-  max-width: 30%;
+  max-width: 80%;
   z-index: 1000;
-}
-@media (max-width: 767px) {
-  #reddit .scroll__text {
-    max-width: 80%;
-  }
+  pointer-events: none;
 }
 #reddit .step {
   height: 100vh;
+  pointer-events: none;
 }
 #reddit .step p {
   background-color: #fff;
@@ -1387,6 +1388,18 @@ article {
     text-align: left;
   }
 }
+.quintett figure {
+  margin: 0 0 0.5rem 1rem;
+  width: 45%;
+  float: right;
+}
+@media (max-width: 767px) {
+  .quintett figure {
+    margin: 1rem auto;
+    width: 100%;
+    float: none;
+  }
+}
 #less-baby {
   margin-bottom: 1em;
 }
@@ -1399,6 +1412,9 @@ article {
   #less-baby .birth-rates-chart {
     height: 50vh;
   }
+}
+#less-baby .birth-rates-chart h3 {
+  padding-bottom: 1rem;
 }
 #less-baby .birth-rates-chart .line-2019 {
   stroke: #000;
@@ -1487,17 +1503,6 @@ article {
   position: relative;
   margin-top: 1em;
 }
-.olive-racism figure {
-  margin: 0 0 0.5rem 1rem;
-  width: 45%;
-  float: right;
-}
-@media (max-width: 767px) {
-  .olive-racism figure {
-    margin: 0 0 0rem 1rem;
-    width: 55%;
-  }
-}
 .olive-racism .paper {
   position: relative;
   height: 45vh;
@@ -1569,8 +1574,9 @@ article {
 @media (max-width: 767px) {
   .capek figure,
   .hanlon-childbirth figure {
-    margin: 0 0 0rem 1rem;
-    width: 55%;
+    margin: 1rem auto;
+    width: 100%;
+    float: none;
   }
 }
 .hanlon-childbirth figure {
@@ -1579,7 +1585,21 @@ article {
 }
 @media (max-width: 767px) {
   .hanlon-childbirth figure {
-    margin: 0 1rem 0rem 0;
+    margin: 1rem auto;
+    width: 100%;
+    float: none;
+  }
+}
+.hanlon-mixbags figure {
+  margin: 0 0 0.5rem 1rem;
+  width: 45%;
+  float: right;
+}
+@media (max-width: 767px) {
+  .hanlon-mixbags figure {
+    margin: 1rem auto;
+    width: 100%;
+    float: none;
   }
 }
 @-webkit-keyframes FadeIn {

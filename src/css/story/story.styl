@@ -16,6 +16,9 @@ phone = "(max-width: 767px)"
 figure
     margin 3em 0
 
+.audio-container
+    margin 2em 0
+
 p.credit
     margin 0
     font-size 14px
@@ -26,7 +29,8 @@ p.credit
     color $gray
 
 h2
-    font-family $ft-grotzec
+    margin-top 2em
+    font-family $le-june
     font-size 30px
     line-height 110%
     @media phone 
@@ -37,7 +41,7 @@ h3
     font-size 24px
     @media phone 
         font-size 20px
-    font-family $ft-grotzec
+    font-family $le-june
     line-height 1.2
 h5 
     line-height 120%
@@ -67,7 +71,7 @@ h5
     padding 0.2rem
     opacity 0
     display none
-    border 3px solid $black
+    box-shadow 1px 1px 3px $gray
     margin 0 auto
     pointer-events none
 
@@ -164,9 +168,11 @@ article
         .cover-photo
             height 80vh
             width 100%
-            background-repeat repeat
-            background-size contain
+            background-repeat no-repeat
+            background-size cover
             background-position center
+            @media phone
+                height 50vh
     &__content
         position relative
         display flex
@@ -188,39 +194,54 @@ article
                 top 0
                 z-index 10000
             button 
-                max-width 10%
+                position relative
                 margin-left 1.5rem
                 border-radius 0
-                border-bottom 1px solid 
+                // border-bottom 1px solid 
                 font-family $le-june
+                max-width fit-content
                 @media phone
                     font-size 18px
                     margin-top 0
                     margin-left 0
-                    max-width fit-content
                 &:hover
                     color $pink
+                .button-border
+                    position absolute
+                    left 0
+                    top 23px
+                    width 100%
+                    height 10px
+                    background $pink
+                    opacity 0
+                    @media phone
+                        top 16px
+                        height 8px
 
 #infection
     .cover-photo
         background-image url('assets/images/ultrasound-illustration.png')
     .infection-button
-        color $pink
+        .button-border
+            opacity 0.3
 #isolation
     .cover-photo
         background-image url('assets/images/belly-cover-photo.jpg')
     .isolation-button
-        color $pink
+        .button-border
+            opacity 0.3
 #insecurity
     .cover-photo
         background-image url('assets/images/empty-playground.jpg')
     .insecurity-button
-        color $pink
+        .button-border
+            opacity 0.3
 #inequality
     .cover-photo
         background-image url('assets/images/empty-playground.jpg')
     .inequality-button
-        color $pink
+        .button-border
+            opacity 0.3
   
 .murray
     &__img
@@ -308,29 +329,20 @@ article
 
 #reddit
     margin-bottom 5em
-    h2
-        margin 0 auto 1rem
-        width $column-width
-        @media phone
-            width $phone-column-width
     .reddit__container
         width 80%
         margin 0 auto
         position relative
         display flex
+        flex-direction column-reverse
         justify-content center
-        @media phone
-                flex-direction column-reverse
     .scroll__graphic
         // overflow hidden
         position sticky
         position -webkit-sticky
-        top 8em
         align-self start
-        width 60%
-        @media phone
-            top 5rem
-            width 100%
+        top 5rem
+        width 100%
         .explain
             font-family $sans
             font-size 15px
@@ -340,17 +352,16 @@ article
             font-size 12px
             text-anchor end
             font-family $sans
-            font-weight bold
             
     .scroll__text
         position relative
         margin auto
-        max-width 30%
+        max-width 80%
         z-index 1000
-        @media phone
-            max-width 80%
+        pointer-events none
     .step 
         height 100vh
+        pointer-events none
         p
             background-color rgba(255,255,255,1)    
             padding 1rem 
@@ -428,7 +439,15 @@ article
                             width 100%
                             text-align left
                     
-
+.quintett
+    figure
+            margin 0 0 0.5rem 1rem
+            width 45%
+            float right
+            @media phone
+                margin 1rem auto
+                width 100%
+                float none
 #less-baby
     margin-bottom 1em
     .birth-rates-chart
@@ -437,6 +456,8 @@ article
         margin 3em auto 0
         @media phone 
             height 50vh
+        h3
+            padding-bottom 1rem
         .line-2019
             stroke $black
         .line-2020
@@ -491,13 +512,6 @@ article
 .olive-racism
     position relative
     margin-top 1em
-    figure
-        margin 0 0 0.5rem 1rem
-        width 45%
-        float right
-        @media phone
-            margin 0 0 0rem 1rem
-            width 55%
     .paper
         position relative
         height 45vh
@@ -560,15 +574,28 @@ article
         width 45%
         float right
         @media phone
-            margin 0 0 0rem 1rem
-            width 55%
+            margin 1rem auto
+            width 100%
+            float none
 
 .hanlon-childbirth
     figure
         float left
         margin 0 1rem 0.5rem 0rem
         @media phone
-            margin 0 1rem 0rem 0
+            margin 1rem auto
+            width 100%
+            float none
+        
+.hanlon-mixbags
+    figure
+        margin 0 0 0.5rem 1rem
+        width 45%
+        float right
+        @media phone
+            margin 1rem auto
+            width 100%
+            float none
 
 // #more-stories
 //     position relative

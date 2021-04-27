@@ -7,7 +7,18 @@
     <h2> It’s the little details that stress you out.
     </h2>
     <article>
-        {{#each doc.quintett}}
+        {{#each doc.quintett1}}
+        <div>
+            <p>
+                {{value}}
+            </p>
+        </div>
+        {{/each}}
+        <figure>
+            <img src='./assets/images/quintett.jpg'>
+            <p class='credit'>Photo credit to Quintett Bowers</p>
+        </figure>
+        {{#each doc.quintett2}}
         <div>
             <p>
                 {{value}}

@@ -8,7 +8,7 @@ var Stickyfill = require('stickyfilljs')
 const MARGIN = {
     top: 50,
     right: 40,
-    bottom: 50,
+    bottom: 60,
     left: 20
 }
 let h = window.innerHeight,
@@ -342,7 +342,7 @@ function init() {
             d.birth_yoy = +d.birth_yoy;
             d.date = new Date(`${d.Year}-${d.month}`)
         })
-        dataset = result[0].filter(d => d.date > new Date('2019-09-25'))
+        dataset = result[0].filter(d => d.date > new Date('2019/09/25'))
         resize();
         // setupScroller();
     }).catch(console.error);

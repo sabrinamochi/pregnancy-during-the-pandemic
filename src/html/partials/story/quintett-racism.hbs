@@ -1,6 +1,24 @@
 <section class='quintett-racism'>
     <article>
-        {{#each doc.quintett-racism}}
+        {{#each doc.quintett-racism1}}
+        <div>
+            <p>
+                {{value}}
+            </p>
+        </div>
+        {{/each}}
+        <div class='audio-container'>
+            <div class='audio-text'>
+                <h3>
+                    Listen to Bowers' story
+                </h3>
+            </div>
+            <audio controls>
+                <source src="assets/audios/quintett-racism.mp3" type="audio/mpeg">
+                Your browser does not support the audio tag.
+            </audio>
+        </div>
+        {{#each doc.quintett-racism2}}
         <div>
             <p>
                 {{value}}
@@ -8,4 +26,5 @@
         </div>
         {{/each}}
     </article>
+
 </section>
