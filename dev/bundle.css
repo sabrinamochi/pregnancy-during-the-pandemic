@@ -747,6 +747,10 @@ h1 {
     max-width: 90%;
   }
 }
+.opening__text__container__text {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 button {
   max-width: 25%;
   margin: 2rem 0 10px;
@@ -960,10 +964,12 @@ h5 {
 .overview div:nth-child(1) {
   -webkit-animation-name: FadeIn, Enlarge, FadeOut;
           animation-name: FadeIn, Enlarge, FadeOut;
-  -webkit-animation-duration: 2s, 5s, 1s;
-          animation-duration: 2s, 5s, 1s;
-  -webkit-animation-delay: 0.5s, 6.5s, 13.5s;
-          animation-delay: 0.5s, 6.5s, 13.5s;
+  -webkit-animation-fill-mode: forwards, forwards, forwards;
+          animation-fill-mode: forwards, forwards, forwards;
+  -webkit-animation-duration: 2s, 3.5s, 1s;
+          animation-duration: 2s, 3.5s, 1s;
+  -webkit-animation-delay: 0.5s, 6.5s, 12s;
+          animation-delay: 0.5s, 6.5s, 12s;
 }
 @media (max-width: 767px) {
   .overview div:nth-child(1) {
@@ -1096,13 +1102,13 @@ article {
   opacity: 0.3;
 }
 #insecurity .cover-photo {
-  background-image: url("assets/images/empty-playground.jpg");
+  background-image: url("assets/images/money-needle.png");
 }
 #insecurity .insecurity-button .button-border {
   opacity: 0.3;
 }
 #inequality .cover-photo {
-  background-image: url("assets/images/empty-playground.jpg");
+  background-image: url("assets/images/hand-help-illustration.png");
 }
 #inequality .inequality-button .button-border {
   opacity: 0.3;
@@ -1565,26 +1571,13 @@ article {
 .olive-racism .paper .hole-bottom {
   bottom: 10%;
 }
-.capek figure,
-.hanlon-childbirth figure {
+.capek figure {
   margin: 0 0 0.5rem 1rem;
   width: 45%;
   float: right;
 }
 @media (max-width: 767px) {
-  .capek figure,
-  .hanlon-childbirth figure {
-    margin: 1rem auto;
-    width: 100%;
-    float: none;
-  }
-}
-.hanlon-childbirth figure {
-  float: left;
-  margin: 0 1rem 0.5rem 0rem;
-}
-@media (max-width: 767px) {
-  .hanlon-childbirth figure {
+  .capek figure {
     margin: 1rem auto;
     width: 100%;
     float: none;

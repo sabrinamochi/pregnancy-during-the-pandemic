@@ -116,10 +116,11 @@ h5
             color $pink
     div:nth-child(1) 
         animation-name FadeIn, Enlarge, FadeOut
+        animation-fill-mode forwards, forwards, forwards
         @media phone
             animation-name FadeIn, EnlargeMobile, FadeOut 
-        animation-duration 2s, 5s, 1s
-        animation-delay .5s, 6.5s, 13.5s
+        animation-duration 2s, 3.5s, 1s
+        animation-delay .5s, 6.5s, 12s
     div:nth-child(2) 
         animation-name FadeIn, FadeOut
         animation-duration 2s, 1s
@@ -232,13 +233,13 @@ article
             opacity 0.3
 #insecurity
     .cover-photo
-        background-image url('assets/images/empty-playground.jpg')
+        background-image url('assets/images/money-needle.png')
     .insecurity-button
         .button-border
             opacity 0.3
 #inequality
     .cover-photo
-        background-image url('assets/images/empty-playground.jpg')
+        background-image url('assets/images/hand-help-illustration.png')
     .inequality-button
         .button-border
             opacity 0.3
@@ -568,7 +569,7 @@ article
         .hole-bottom 
             bottom 10%
                 
-.capek, .hanlon-childbirth
+.capek
     figure
         margin 0 0 0.5rem 1rem
         width 45%
@@ -578,15 +579,7 @@ article
             width 100%
             float none
 
-.hanlon-childbirth
-    figure
-        float left
-        margin 0 1rem 0.5rem 0rem
-        @media phone
-            margin 1rem auto
-            width 100%
-            float none
-        
+
 .hanlon-mixbags
     figure
         margin 0 0 0.5rem 1rem
