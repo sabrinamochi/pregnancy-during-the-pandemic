@@ -118,20 +118,20 @@ h5
         animation-name FadeIn, Enlarge, FadeOut
         @media phone
             animation-name FadeIn, EnlargeMobile, FadeOut 
-        animation-duration 2s, 4s, 1s
-        animation-delay .5s, 3s, 7s
+        animation-duration 2s, 5s, 1s
+        animation-delay .5s, 6.5s, 13.5s
     div:nth-child(2) 
         animation-name FadeIn, FadeOut
         animation-duration 2s, 1s
-        animation-delay 1s, 3s
+        animation-delay 1.5s, 6.5s
     div:nth-child(3) 
         animation-name FadeIn, FadeOut
         animation-duration 2s, 1s
-        animation-delay 1.5s, 3s
+        animation-delay 2.5s, 6.5s
     div:nth-child(4) 
         animation-name FadeIn, FadeOut
         animation-duration 2s, 1s
-        animation-delay 2s, 3s
+        animation-delay 3.5s, 6.5s
         
 @keyframes FadeIn
   0% 
@@ -597,105 +597,14 @@ article
             width 100%
             float none
 
-// #more-stories
-//     position relative
-//     audio 
-//         margin 2rem 0
-//         width 95%
-//     h2 
-//         margin 0 0 2rem
-//         text-align center
-//         @media phone
-//             text-align left
-//         font-size 40px
-//     .story__container
-//         display none
-//         &.active
-//             display block
-//         h3
-//             @media phone
-//                 margin-top 0
-//         figure
-//             margin 0
-//         &__content
-//             display flex
-//             justify-content space-between
-//             @media phone
-//                 flex-direction column
-//             &__text__holder
-//                 padding 1rem 0
-//                 width 40%
-//                 @media phone
-//                     width 95%
-//                 p 
-//                     margin 0
-                
-//             &__image__holder
-//                 width 50%
-//                 @media phone
-//                     width 95%
-//         &#quintett, &#olive, &#jordan
-//             .story__container__content
-//                 @media phone
-//                     flex-direction column-reverse
-    
-//     .button__container
-//         position absolute
-//         top 35vh
-//         transform translateX(-50%)
-//         left 50%
-//         z-index 100
-//         display flex
-//         justify-content space-between
-//         padding 0.5rem 0 0.25rem 0
-//         width 130%
-//         @media phone
-//             width 120%
-//         .button__previous, .button__next
-//             // border 1px solid $black
-//             // border-radius 3px
-//         // .button__next
-//         //     border-top 1px solid $black
-//         //     border-right 1px solid $black
-//         //     border-bottom 1px solid $black
-//         button 
-//             display flex
-//             align-content center
-//             justify-content center
-//             flex-basis 5%
-//             font-size 2rem
-//             color $black
-//             height 55px
-//             // flex-basis 10%
-//             background $white
-//             .icon
-//                 position relative
-//                 margin auto
-//                 width 20px
-//                 height 0.8px
-//                 // background $black
-//             .arrow-left
-//                 &::before 
-//                     content ''
-//                     position absolute
-//                     left 6px
-//                     top -6px
-//                     width 20px
-//                     height 20px
-//                     border-top 3px solid $black
-//                     border-right 3px solid $black
-//                     border-radius 3px
-//                     transform rotate(-135deg)
-//             .arrow-right
-//                 &::before 
-//                     content ''
-//                     position absolute
-//                     right 6px
-//                     top -6px
-//                     width 20px
-//                     height 20px
-//                     border-top 3px solid $black
-//                     border-right 3px solid $black
-//                     border-radius 3px
-//                     transform rotate(45deg)
-      
+.next-chapter
+    button
+        text-align left
+        max-width fit-content
+        border 1px solid $black
+        padding 1rem 2rem
+        font-size 18px
+        border-radius 0
+        &:hover
+            background-color $black
+            color $white
