@@ -673,6 +673,9 @@ header.is-sticky.is-dark .header__toggle svg {
 header.is-sticky.is-dark .header__toggle.is-visible span svg {
   stroke: #282828;
 }
+#content {
+  margin-top: 1.5rem;
+}
 h1 {
   font-size: 48px;
   line-height: 115%;
@@ -682,6 +685,7 @@ h1 {
 @media (max-width: 767px) {
   h1 {
     font-size: 30px;
+    margin: 0.5rem 0;
   }
 }
 .opening {
@@ -703,7 +707,7 @@ h1 {
 }
 @media (max-width: 767px) {
   .opening__text__container {
-    max-width: 80%;
+    max-width: 90%;
   }
 }
 .opening__text__container p {
@@ -716,6 +720,7 @@ h1 {
 @media (max-width: 767px) {
   .opening__text__container p {
     font-size: 14px;
+    line-height: 120%;
   }
 }
 .opening__text__container .sound-on-text p {
@@ -728,7 +733,7 @@ h1 {
 }
 @media (max-width: 767px) {
   .opening__text__container .sound-on-text p {
-    font-size: 16px;
+    font-size: 14px;
     padding: 0.3rem 0.1rem;
   }
 }
@@ -759,6 +764,8 @@ button {
 @media (max-width: 767px) {
   button {
     max-width: 40%;
+    font-size: 18px;
+    margin-top: 0.5rem;
   }
 }
 button:hover {

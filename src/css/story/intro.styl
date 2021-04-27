@@ -3,6 +3,9 @@
 tablet = "(min-width: 768px) and (max-width: 979px)"
 phone = "(max-width: 767px)"
 
+#content
+	margin-top 1.5rem
+
 h1
 	font-size 48px
 	line-height 115%
@@ -10,6 +13,7 @@ h1
 	font-family $le-june
 	@media phone
 		font-size 30px
+		margin 0.5rem 0
 
 .opening
 	height 100vh
@@ -23,7 +27,7 @@ h1
 		align-items center
 		max-width 45%
 		@media phone
-			max-width 80%
+			max-width 90%
 		p
 			font-size 15px
 			line-height 130%
@@ -32,6 +36,7 @@ h1
 			margin-bottom 0.5rem
 			@media phone
 				font-size 14px
+				line-height 120%
 		.sound-on-text p
 			font-size 15px
 			font-family $sans
@@ -40,7 +45,7 @@ h1
 			padding 0.2rem 0.3rem
 			line-height 115%
 			@media phone
-				font-size 16px
+				font-size 14px
 				padding 0.3rem 0.1rem
 		&__text, .sound-on-text 
 			max-width 85%
@@ -57,9 +62,11 @@ button
 	font-weight 600
 	box-shadow 1px 1px 2px $white
 	font-family $sans
+	border-radius 5px
 	@media phone
 		max-width 40%
-	border-radius 5px
+		font-size 18px
+		margin-top .5rem 
 	&:hover
 		background-color rgba(0,0,0,0)
 		color $white
