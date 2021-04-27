@@ -955,8 +955,6 @@ h5 {
 .overview div:nth-child(1) {
   -webkit-animation-name: FadeIn, Enlarge, FadeOut;
           animation-name: FadeIn, Enlarge, FadeOut;
-  -webkit-animation-fill-mode: forwards, forwards, forwards;
-          animation-fill-mode: forwards, forwards, forwards;
   -webkit-animation-duration: 2s, 4s, 1s;
           animation-duration: 2s, 4s, 1s;
   -webkit-animation-delay: 0.5s, 3s, 7s;
