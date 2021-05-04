@@ -10,6 +10,7 @@ import takeAGuessBar from './takeAGuessBar';
 import redditChart from './redditChart';
 import birthRate from './birthRate';
 import disparityBarChart from './disparityBarChart';
+import feedback from './feedback';
 // import moreStory from './moreStory';
 
 const $body = d3.select('body');
@@ -50,6 +51,7 @@ function init() {
   disparityBarChart.init();
   redditChart.init();
   takeAGuessBar.init();
+  feedback.init();
   // // moreStory.init();
 
 }

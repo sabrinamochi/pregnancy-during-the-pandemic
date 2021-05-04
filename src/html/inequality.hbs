@@ -2,7 +2,7 @@
 <html lang='en' data-version='{{timestamp}}'>
 
 <head>
-
+	{{> base/firebase}}
 	<link rel="stylesheet" type="text/css"
 		href="https://mediainnovation.camd.northeastern.edu/2021/loveinthetimeofcovid/css/loveinthetimeofcovid.css" />
 	<link rel="stylesheet" type="text/css"
@@ -12,6 +12,7 @@
 	<link inline rel='stylesheet' href='bundle.css' />
 
 	{{> base/font}}
+	
 
 
 </head>
@@ -35,6 +36,15 @@
 					{{> story/hanlon-mixbags}}
 					{{> story/olive-racism}}
 					{{> story/ending}}
+					<section>
+						<div class="rating">
+							<!-- Thumbs up -->
+							<div class="rating-button rating__like" data-section="inequality" data-answer="yes">
+								<p class='vote-like'></p>
+								<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+							</div>
+						</div>
+					</section>
 					{{> base/authors}}
 				</div>
 			</div>

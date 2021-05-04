@@ -2,7 +2,7 @@
 <html lang='en' data-version='{{timestamp}}'>
 
 <head>
-
+	{{> base/firebase}}
 	<link rel="stylesheet" type="text/css"
 		href="https://mediainnovation.camd.northeastern.edu/2021/loveinthetimeofcovid/css/loveinthetimeofcovid.css" />
 	<link rel="stylesheet" type="text/css"
@@ -33,6 +33,15 @@
 					{{> story/capek}}
 					{{> story/hanlon-childbirth}}
 					{{> story/deavers-heartbeat}}
+					<section>
+						<div class="rating">
+							<!-- Thumbs up -->
+							<div class="rating-button rating__like" data-section="isolation" data-answer="yes">
+								<p class='vote-like'></p>
+								<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+							</div>
+						</div>
+					</section>
 					<div class='next-chapter'>
 						<button onclick="location.href='./insecurity.html'">
 							<span class='button-text'>Next Chapter</span>
